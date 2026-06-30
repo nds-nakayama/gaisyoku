@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>企画書（社内検討用）｜外食業2号 試験対策支援プログラム</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FBFAF6;
+    --card:#FFFFFF;
+    --ink:#1B2420;
+    --ink-soft:#56615A;
+    --green:#1E6B4F;
+    --green-deep:#15543C;
+    --green-soft:#E7F0EA;
+    --persimmon:#D9622A;
+    --persimmon-soft:#FBEADF;
+    --amber-soft:#FBF3E7;
+    --line:#E5E2D6;
+    --line-2:#EFEDE4;
+    --font:"Zen Kaku Gothic New", sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;font-family:var(--font);color:var(--ink);background:var(--paper);
+    line-height:1.85;font-feature-settings:"palt";-webkit-font-smoothing:antialiased;
+  }
+
+  /* top bar */
+  .topbar{background:var(--green);color:#fff;padding:26px 0;}
+  .topbar .inner{max-width:1120px;margin:0 auto;padding:0 26px;}
+  .doc-tag{
+    display:inline-block;font-size:.74rem;font-weight:700;letter-spacing:.08em;
+    background:rgba(255,255,255,.16);padding:5px 12px;border-radius:999px;margin-bottom:14px;
+  }
+  .topbar h1{font-size:clamp(1.35rem,3.4vw,1.9rem);font-weight:900;margin:0 0 6px;line-height:1.4;}
+  .topbar .desc{font-size:.92rem;opacity:.92;margin:0;max-width:60ch;}
+  .meta{
+    display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:18px;
+    font-size:.82rem;opacity:.95;
+  }
+  .meta b{font-weight:700;opacity:.8;margin-right:6px;}
+
+  /* layout */
+  .layout{max-width:1120px;margin:0 auto;padding:30px 26px 80px;display:grid;grid-template-columns:1fr;gap:34px;}
+  nav.toc{display:none;}
+  @media(min-width:920px){
+    .layout{grid-template-columns:220px 1fr;align-items:start;}
+    nav.toc{
+      display:block;position:sticky;top:22px;
+      background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 14px;
+      font-size:.86rem;
+    }
+    nav.toc .t{font-size:.72rem;font-weight:700;letter-spacing:.06em;color:var(--persimmon);margin:0 0 8px;}
+    nav.toc a{display:block;color:var(--ink-soft);text-decoration:none;padding:6px 8px;border-radius:8px;line-height:1.35;}
+    nav.toc a:hover{background:var(--green-soft);color:var(--green-deep);}
+    nav.toc a .n{font-weight:700;color:var(--green);margin-right:6px;}
+  }
+
+  main{min-width:0;}
+
+  /* summary callout */
+  .callout{
+    background:var(--green-soft);border:1px solid #CFE2D6;border-left:5px solid var(--green);
+    border-radius:12px;padding:18px 22px;margin-bottom:38px;font-size:.95rem;color:var(--green-deep);
+  }
+  .callout b{font-weight:700;}
+
+  section{margin-bottom:42px;scroll-margin-top:18px;}
+  h2.sec{
+    display:flex;align-items:center;gap:12px;
+    font-size:1.28rem;font-weight:900;margin:0 0 16px;padding-bottom:10px;
+    border-bottom:2px solid var(--line);line-height:1.4;
+  }
+  h2.sec .num{
+    flex-shrink:0;width:30px;height:30px;border-radius:9px;background:var(--green);color:#fff;
+    display:flex;align-items:center;justify-content:center;font-size:.95rem;font-weight:700;
+  }
+  h3.sub{font-size:1rem;font-weight:700;color:var(--green-deep);margin:24px 0 8px;}
+  p{margin:0 0 12px;}
+  .lead{color:var(--ink-soft);}
+
+  /* generic table */
+  table.kv{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;margin:6px 0 8px;}
+  table.kv th,table.kv td{text-align:left;vertical-align:top;padding:11px 16px;border-bottom:1px solid var(--line-2);font-size:.93rem;}
+  table.kv tr:last-child th,table.kv tr:last-child td{border-bottom:none;}
+  table.kv th{width:150px;background:var(--green-soft);color:var(--green-deep);font-weight:700;white-space:nowrap;}
+
+  /* cards grid */
+  .grid{display:grid;grid-template-columns:1fr;gap:12px;margin:6px 0;}
+  @media(min-width:560px){.grid.col2{grid-template-columns:1fr 1fr;}.grid.col3{grid-template-columns:1fr 1fr 1fr;}}
+  .mini{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;}
+  .mini .h{font-weight:700;margin-bottom:2px;}
+  .mini .h .badge{font-size:.72rem;font-weight:700;color:var(--persimmon);margin-left:6px;}
+  .mini p{margin:0;font-size:.9rem;color:var(--ink-soft);}
+
+  /* highlight pills (price / finish) */
+  .pill-row{display:grid;grid-template-columns:1fr;gap:12px;margin:6px 0;}
+  @media(min-width:560px){.pill-row{grid-template-columns:1fr 1fr;}}
+  .pill{border-radius:12px;padding:16px 18px;color:#fff;}
+  .pill.green{background:var(--green);}
+  .pill.persimmon{background:var(--persimmon);}
+  .pill .big{font-size:1.7rem;font-weight:900;line-height:1;}
+  .pill .big small{font-size:.85rem;font-weight:500;}
+  .pill .lbl{font-weight:700;margin-top:4px;}
+  .pill .d{font-size:.85rem;opacity:.92;margin-top:3px;}
+
+  /* price box */
+  .pricebox{background:var(--ink);color:var(--paper);border-radius:16px;padding:24px 26px;}
+  .pricebox .amt{font-size:2.2rem;font-weight:900;line-height:1;}
+  .pricebox .amt small{font-size:.95rem;font-weight:500;opacity:.8;}
+  .pricebox ul{list-style:none;padding:0;margin:14px 0 12px;display:grid;gap:8px;}
+  .pricebox li{display:flex;gap:9px;font-size:.93rem;}
+  .pricebox li::before{content:"✓";color:#8FD3B6;font-weight:900;}
+  .pricebox .note{font-size:.8rem;opacity:.72;margin:0;}
+
+  /* reasons */
+  ol.reasons{list-style:none;counter-reset:r;padding:0;margin:6px 0;display:grid;grid-template-columns:1fr;gap:8px;}
+  @media(min-width:560px){ol.reasons{grid-template-columns:1fr 1fr;}}
+  ol.reasons li{counter-increment:r;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px 12px 46px;position:relative;font-size:.92rem;}
+  ol.reasons li::before{content:counter(r);position:absolute;left:12px;top:12px;width:24px;height:24px;background:var(--green);color:#fff;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:.82rem;font-weight:700;}
+  ol.reasons li b{display:block;}
+
+  /* open issues (decision items) */
+  .issue{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--persimmon);border-radius:10px;padding:13px 16px;margin-bottom:9px;}
+  .issue .top{display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+  .issue .badge{font-size:.68rem;font-weight:700;color:#fff;background:var(--persimmon);padding:3px 9px;border-radius:999px;letter-spacing:.04em;}
+  .issue .q{font-weight:700;font-size:.95rem;}
+  .issue p{margin:6px 0 0;font-size:.88rem;color:var(--ink-soft);}
+
+  /* steps */
+  .steps{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:8px 0;}
+  .step{background:var(--green-soft);color:var(--green-deep);font-weight:700;font-size:.88rem;padding:9px 15px;border-radius:999px;}
+  .arrow{color:var(--green);font-weight:700;}
+
+  .ref-note{font-size:.82rem;color:var(--ink-soft);background:var(--amber-soft);border-radius:10px;padding:10px 14px;margin-top:8px;}
+
+  footer{border-top:1px solid var(--line);margin-top:10px;padding-top:18px;font-size:.82rem;color:var(--ink-soft);}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="inner">
+    <span class="doc-tag">社内検討用 ／ DRAFT</span>
+    <h1>外食業分野 特定技能2号評価試験<br>対策支援プログラム 企画書</h1>
+    <div class="meta">
+      <span><b>版</b>v1 ドラフト</span>
+    </div>
+  </div>
+</div>
+
+<div class="layout">
+
+  <nav class="toc">
+    <p class="t">目次</p>
+    <a href="#s1"><span class="n">1</span>企画概要</a>
+    <a href="#s2"><span class="n">2</span>ターゲットと販売形態</a>
+    <a href="#s3"><span class="n">3</span>プログラム内容</a>
+    <a href="#s4"><span class="n">4</span>料金・提供条件</a>
+    <a href="#s5"><span class="n">5</span>差別化・強み</a>
+    <a href="#s6"><span class="n">6</span>検討事項（要確定）</a>
+    <a href="#s7"><span class="n">7</span>想定スケジュール</a>
+  </nav>
+
+  <main>
+
+    <div class="callout">
+      <b>要旨：</b>スマホ完結のオンデマンド学習（約10分動画×約30本）＋確認テスト＋模擬テスト10回＋オンラインサポート5回を、<b>一括35,000円（未定案）</b>で提供。動画は1ヶ月間・回数無制限。やさしい日本語・ルビ補助で「ルビなし日本語試験」の壁を下げ、弱点の可視化と<b>雇用主への進捗レポート</b>を強みとする。
+    </div>
+
+    <!-- 1 -->
+    <section id="s1">
+      <h2 class="sec"><span class="num">1</span>企画概要</h2>
+      <table class="kv">
+        <tr><th>対象試験</th><td>外食業分野 特定技能2号評価試験（OTAFF実施）</td></tr>
+        <tr><th>提供形態</th><td>スマホ完結のオンライン対策（オンデマンド動画 ＋ オンラインサポート ＋ Webテスト）</td></tr>
+        <tr><th>中心コンテンツ</th><td>約10分の動画＋確認テストを約30セット／模擬テスト10回／オンラインサポート5回</td></tr>
+        <tr><th>価格</th><td>一括パッケージ 35,000円（未定案・たたき台／動画視聴 1ヶ月・回数無制限）</td></tr>
+        <tr><th>言語対応</th><td>日本語 ＋ やさしい日本語／ルビ補助</td></tr>
+        <tr><th>想定顧客</th><td>受け入れ企業（B2B）／ 受験者個人（B2C）の両方</td></tr>
+      </table>
+      <p class="lead">働きながら学ぶ受験者に向けて、「スマホで隙間時間に・反復で・弱点を絞って」学べる仕組みを、企業・個人の双方に提供する。</p>
+    </section>
+
+    <!-- 2 -->
+    <section id="s2">
+      <h2 class="sec"><span class="num">2</span>ターゲットと販売形態</h2>
+      <div class="grid col2">
+        <div class="mini">
+          <div class="h">受け入れ企業（B2B）</div>
+          <p>特定技能外国人の2号移行をめざす外食業企業。基幹人材の定着・育成を、合格支援から後押しする。</p>
+        </div>
+        <div class="mini">
+          <div class="h">受験者個人（B2C）</div>
+          <p>指導等実務経験2年以上で、2号合格をめざす受験者。働きながらでも続けられる学習設計。</p>
+        </div>
+      </div>
+      <p class="lead">企業のまとめ導入と個人申込みの双方に対応する料金・提供設計とする（B2B価格は要確定。第7章参照）。</p>
+    </section>
+
+    <!-- 3 -->
+    <section id="s3">
+      <h2 class="sec"><span class="num">3</span>プログラム内容（学習設計）</h2>
+
+      <h3 class="sub">学習の3本柱（見る・わかる・覚える・解く）</h3>
+      <div class="grid col3">
+        <div class="mini"><div class="h">見る・わかる｜動画</div><p>1本約10分。要点を凝縮。やさしい日本語・ルビ補助で専門用語もかみ砕く。</p></div>
+        <div class="mini"><div class="h">覚える｜カード</div><p>用語と要点をフラッシュカードで反復。くりかえしで定着。</p></div>
+        <div class="mini"><div class="h">解く｜確認テスト</div><p>動画ごとに理解度をその場で確認。つまずきを残さない。</p></div>
+      </div>
+      <p class="lead">「動画＋確認テスト」を約30セット用意し、何度でも反復できる構成。出題範囲（接客・飲食物調理・衛生管理・店舗運営）を網羅する。</p>
+
+      <h3 class="sub">本番に向けた仕上げ</h3>
+      <div class="pill-row">
+        <div class="pill green"><div class="big">10<small> 回</small></div><div class="lbl">模擬テスト</div><div class="d">本番同形式（70分・3択・CBT想定）で総合力と時間配分を確認。</div></div>
+        <div class="pill persimmon"><div class="big">5<small> 回まで</small></div><div class="lbl">オンラインサポート</div><div class="d">苦手分野を講師がオンラインでフォロー。</div></div>
+      </div>
+
+      <h3 class="sub">弱点の可視化</h3>
+      <p class="lead">確認テスト・模擬テストの結果をグラフ化し、分野別・項目別に弱点を把握。合格基準（正答率65%）を効率的に超える学習に導く。</p>
+
+      <h3 class="sub">雇用主への進捗レポート</h3>
+      <p class="lead">受講者の進捗率・テスト結果・弱点を、企業へ定期的に報告。「合格に向けて順調か」を可視化し、B2B提案の中核訴求とする。</p>
+
+      <h3 class="sub">提供スペック</h3>
+      <table class="kv">
+        <tr><th>デバイス</th><td>スマートフォン完結（PC・タブレットも可）</td></tr>
+        <tr><th>配信方式</th><td>オンデマンド動画 ＋ オンラインサポート ＋ Webテスト</td></tr>
+        <tr><th>動画</th><td>約10分 × 約30本／視聴回数 無制限</td></tr>
+        <tr><th>テスト</th><td>確認テスト ＋ 模擬テスト10回</td></tr>
+        <tr><th>サポート</th><td>オンライン 5回まで</td></tr>
+        <tr><th>言語</th><td>日本語 ＋ やさしい日本語／ルビ補助</td></tr>
+      </table>
+    </section>
+
+    <!-- 4 -->
+    <section id="s4">
+      <h2 class="sec"><span class="num">4</span>料金・提供条件</h2>
+      <div class="pricebox">
+        <div class="amt">¥35,000<small>（一括・たたき台）</small></div>
+        <ul>
+          <li>動画視聴　1ヶ月間・回数無制限</li>
+          <li>模擬テスト　10回</li>
+          <li>オンラインサポート　5回まで</li>
+        </ul>
+        <p class="note">※ 金額は未定案（たたき台）。最終価格・税区分は要確定。</p>
+      </div>
+    </section>
+
+    <!-- 5 -->
+    <section id="s5">
+      <h2 class="sec"><span class="num">5</span>差別化・強み</h2>
+      <ol class="reasons">
+        <li><b>スマホ完結・隙間学習</b>1日10分から積み上げられる。</li>
+        <li><b>反復で確実に定着</b>動画・カード・確認テストを何度でも。</li>
+        <li><b>弱点の可視化</b>データで弱点を把握し、合格基準を効率的に超える。</li>
+        <li><b>やさしい日本語／ルビ補助</b>ルビなし試験で最大の壁となる「日本語の読みづらさ」を軽くする。</li>
+        <li><b>雇用主への進捗レポート</b>企業が「見える化」で育成に伴走。</li>
+        <li><b>日本語学校（NDS）運営</b>日本語教育ノウハウを土台に設計。</li>
+      </ol>
+    </section>
+
+    <!-- 6 -->
+    <section id="s6">
+      <h2 class="sec"><span class="num">6</span>検討事項（要確定の論点）</h2>
+
+      <div class="issue"><div class="top"><span class="badge">要確定</span><span class="q">料金（金額・税区分）の確定</span></div><p>35,000円は未定案（たたき台）。最終価格と税込／税抜を確定する。</p></div>
+      <div class="issue"><div class="top"><span class="badge">要確定</span><span class="q">B2B価格</span></div><p>企業まとめ導入時の席数割引・請求方法を設けるか。個人価格との整合。</p></div>
+      <div class="issue"><div class="top"><span class="badge">要確定</span><span class="q">制作体制・ローンチ時期</span></div><p>動画約30本・テストの制作スケジュールと提供開始時期。</p></div>
+      <div class="issue"><div class="top"><span class="badge">要確定</span><span class="q">「1ヶ月で足りない場合」の救済</span></div><p>延長オプション・再購入の扱い（再受験は45日待機のため要設計）。</p></div>
+    </section>
+
+    <!-- 7 -->
+    <section id="s7">
+      <h2 class="sec"><span class="num">7</span>想定スケジュール（たたき台）</h2>
+      <div class="steps">
+        <span class="step">企画設計</span><span class="arrow">→</span>
+        <span class="step">パイロット</span><span class="arrow">→</span>
+        <span class="step">プラットフォーム準備</span><span class="arrow">→</span>
+        <span class="step">コンテンツ作成</span><span class="arrow">→</span>
+        <span class="step">提供開始</span>
+      </div>
+      <table class="kv">
+        <tr><th>企画設計</th><td><b>7月第1週</b>　料金・提供範囲・設計の確定</td></tr>
+        <tr><th>パイロット</th><td><b>7月第2週</b>　数本の動画と関連するテスト、模擬試験1本で試行・検証</td></tr>
+        <tr><th>プラットフォーム準備</th><td><b>7月第3週</b>　配信／テスト／進捗レポート機能の本実装</td></tr>
+        <tr><th>コンテンツ作成</th><td><b>8月</b>　動画約30本・確認テスト・模擬テスト10回の制作</td></tr>
+        <tr><th>提供開始</th><td><b>9月</b>　企業・個人へ販売開始</td></tr>
+      </table>
+    </section>
+
+    <footer>
+      外食業分野 特定技能2号評価試験 対策支援プログラム ／ NDS日本語学校 ｜ 社内検討用ドラフト
+    </footer>
+
+  </main>
+</div>
+
+<script>
+  // active TOC highlight
+  (function(){
+    var links = Array.prototype.slice.call(document.querySelectorAll('nav.toc a'));
+    if(!links.length || !('IntersectionObserver' in window)) return;
+    var map = {};
+    links.forEach(function(a){ map[a.getAttribute('href').slice(1)] = a; });
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){
+          links.forEach(function(a){ a.style.background=''; a.style.color=''; });
+          var a = map[en.target.id];
+          if(a){ a.style.background='var(--green-soft)'; a.style.color='var(--green-deep)'; }
+        }
+      });
+    },{rootMargin:'-10% 0px -75% 0px'});
+    document.querySelectorAll('section[id]').forEach(function(s){ io.observe(s); });
+  })();
+</script>
+
+</body>
+</html>
