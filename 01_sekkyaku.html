@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>やさしい日本語版 学習テキスト【接客全般】</title>
+<style>
+  :root{
+    --paper:#FBF8F3;
+    --surface:#FFFFFF;
+    --ink:#23302B;
+    --muted:#5C6B63;
+    --green:#2E7D5B;
+    --green-tint:#EAF3EE;
+    --warm:#C56A3E;
+    --warm-tint:#FBEEE4;
+    --rule:#E4DED3;
+    --rt:#7A6A57;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"BIZ UDPGothic","Noto Sans JP","Hiragino Sans","Yu Gothic UI","Meiryo",sans-serif;
+    font-size:18px;
+    line-height:2.05;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:820px;margin:0 auto;padding:0 20px 120px;}
+
+  /* ruby */
+  ruby{ruby-align:center;}
+  rt{
+    font-size:0.56em;
+    color:var(--rt);
+    font-weight:400;
+    line-height:1;
+    letter-spacing:0;
+  }
+
+  /* header */
+  header.hero{
+    padding:64px 0 40px;
+    border-bottom:3px solid var(--green);
+    margin-bottom:8px;
+  }
+  .eyebrow{
+    display:inline-block;
+    font-size:14px;
+    letter-spacing:.14em;
+    color:var(--warm);
+    font-weight:700;
+    border:1.5px solid var(--warm);
+    border-radius:999px;
+    padding:4px 14px;
+    line-height:1.4;
+    margin-bottom:22px;
+  }
+  h1.title{
+    font-size:33px;
+    line-height:1.9;
+    margin:0 0 10px;
+    font-weight:700;
+  }
+  .subtitle{color:var(--muted);font-size:16px;line-height:1.9;margin:0;}
+
+  .readme{
+    background:var(--green-tint);
+    border-radius:14px;
+    padding:20px 24px;
+    margin:28px 0 8px;
+    font-size:15.5px;
+    line-height:1.95;
+    color:#2b4238;
+  }
+  .readme b{color:var(--green);}
+
+  /* big chapter */
+  .chapter{
+    display:flex;
+    align-items:baseline;
+    gap:16px;
+    margin:64px 0 8px;
+    padding-bottom:14px;
+    border-bottom:2px solid var(--ink);
+  }
+  .chapter .num{
+    font-size:15px;
+    font-weight:700;
+    color:#fff;
+    background:var(--green);
+    border-radius:8px;
+    padding:5px 12px;
+    line-height:1.4;
+    white-space:nowrap;
+    align-self:center;
+  }
+  .chapter h2{font-size:26px;margin:0;font-weight:700;line-height:1.7;}
+
+  /* section */
+  h3{
+    font-size:21px;
+    font-weight:700;
+    color:var(--green);
+    margin:44px 0 6px;
+    line-height:1.75;
+    border-left:6px solid var(--green);
+    padding-left:12px;
+  }
+  h4{
+    font-size:18px;
+    font-weight:700;
+    margin:28px 0 4px;
+    line-height:1.75;
+    color:#2b4238;
+  }
+  h4 .mk{color:var(--warm);margin-right:6px;}
+
+  p{margin:12px 0;}
+
+  ul.plain{margin:12px 0;padding-left:0;list-style:none;}
+  ul.plain > li{
+    position:relative;
+    padding-left:26px;
+    margin:10px 0;
+    line-height:1.95;
+  }
+  ul.plain > li::before{
+    content:"";
+    position:absolute;
+    left:4px;top:0.82em;
+    width:9px;height:9px;
+    background:var(--green);
+    border-radius:50%;
+  }
+
+  ol.steps{margin:12px 0;padding-left:0;list-style:none;counter-reset:s;}
+  ol.steps > li{
+    position:relative;
+    padding-left:40px;
+    margin:12px 0;
+    line-height:1.95;
+    counter-increment:s;
+  }
+  ol.steps > li::before{
+    content:counter(s);
+    position:absolute;left:0;top:0.35em;
+    width:26px;height:26px;
+    background:var(--warm);
+    color:#fff;font-size:14px;font-weight:700;
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    line-height:1;
+  }
+
+  /* checklist items (ア イ ウ …) */
+  ul.check{margin:12px 0;padding-left:0;list-style:none;}
+  ul.check > li{
+    position:relative;
+    padding:10px 14px 10px 40px;
+    margin:8px 0;
+    background:var(--surface);
+    border:1px solid var(--rule);
+    border-radius:10px;
+    line-height:1.9;
+  }
+  ul.check > li::before{
+    content:"✓";
+    position:absolute;left:14px;top:9px;
+    color:var(--green);
+    font-weight:700;
+  }
+
+  /* word explanation box */
+  .word{
+    background:var(--warm-tint);
+    border:1px solid #EAD3BF;
+    border-radius:12px;
+    padding:14px 18px;
+    margin:16px 0;
+    font-size:16px;
+    line-height:1.9;
+  }
+  .word .lbl{
+    display:inline-block;
+    font-size:13px;font-weight:700;
+    color:#fff;background:var(--warm);
+    border-radius:6px;padding:2px 10px;
+    margin-right:10px;line-height:1.5;
+    vertical-align:2px;
+  }
+  .word dl{margin:6px 0 0;}
+  .word dt{font-weight:700;margin-top:8px;}
+  .word dd{margin:0 0 4px;color:#5a4535;}
+
+  /* point / note box */
+  .note{
+    background:var(--green-tint);
+    border-radius:12px;
+    padding:14px 18px;
+    margin:16px 0;
+    font-size:16px;
+    line-height:1.9;
+  }
+  .note .lbl{
+    display:inline-block;
+    font-size:13px;font-weight:700;
+    color:#fff;background:var(--green);
+    border-radius:6px;padding:2px 10px;
+    margin-right:10px;line-height:1.5;
+    vertical-align:2px;
+  }
+
+  a{color:var(--green);word-break:break-all;}
+
+  table.tbl{
+    border-collapse:collapse;
+    width:100%;
+    margin:16px 0;
+    font-size:16px;
+    background:var(--surface);
+    border-radius:12px;
+    overflow:hidden;
+  }
+  table.tbl th,table.tbl td{
+    border:1px solid var(--rule);
+    padding:9px 12px;
+    text-align:left;
+    line-height:1.8;
+  }
+  table.tbl th{background:var(--green-tint);font-weight:700;}
+
+  .foot{
+    margin-top:72px;
+    padding-top:22px;
+    border-top:2px solid var(--rule);
+    color:var(--muted);
+    font-size:14.5px;
+    line-height:1.9;
+  }
+
+  @media (max-width:560px){
+    body{font-size:17px;}
+    h1.title{font-size:26px;}
+    .chapter{flex-direction:column;gap:10px;}
+    .chapter h2{font-size:22px;}
+    h3{font-size:19px;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="hero">
+  <span class="eyebrow">やさしい日本語版</span>
+  <h1 class="title"><ruby>外食業<rt>がいしょくぎょう</rt></ruby><ruby>特定技能<rt>とくていぎのう</rt></ruby>２<ruby>号<rt>ごう</rt></ruby><br><ruby>学習<rt>がくしゅう</rt></ruby>テキスト【<ruby>接客<rt>せっきゃく</rt><ruby>全般<rt>ぜんぱん</rt></ruby>】</ruby></h1>
+</header>
+
+<div class="readme">
+  この<ruby>文書<rt>ぶんしょ</rt></ruby>は、<ruby>元<rt>もと</rt></ruby>のテキストを「やさしい<ruby>日本語<rt>にほんご</rt></ruby>」に<ruby>書<rt>か</rt></ruby>き<ruby>換<rt>か</rt></ruby>えたものです。<b><ruby>専門<rt>せんもん</rt></ruby><ruby>用語<rt>ようご</rt></ruby>や<ruby>大切<rt>たいせつ</rt></ruby>な<ruby>言葉<rt>ことば</rt></ruby>は、そのまま<ruby>残<rt>のこ</rt></ruby>しています。</b>文を短くして、<ruby>難<rt>むずか</rt></ruby>しい<ruby>言<rt>い</rt></ruby>い<ruby>方<rt>かた</rt></ruby>をやさしくしました。すべての<ruby>漢字<rt>かんじ</rt></ruby>にルビ（ふりがな）をつけています。<ruby>難<rt>むずか</rt></ruby>しい<ruby>専門<rt>せんもん</rt></ruby><ruby>用語<rt>ようご</rt></ruby>には、<span style="color:var(--warm);font-weight:700;">オレンジ<ruby>色<rt>いろ</rt></ruby>の<ruby>箱<rt>はこ</rt></ruby></span>で<ruby>言葉<rt>ことば</rt></ruby>の<ruby>説明<rt>せつめい</rt></ruby>をつけています。
+</div>
+
+<h3 style="margin-top:36px;">はじめに</h3>
+<p>このテキストは、<ruby>特定技能<rt>とくていぎのう</rt></ruby>２<ruby>号<rt>ごう</rt></ruby>で<ruby>働<rt>はたら</rt></ruby>くために<ruby>必要<rt>ひつよう</rt></ruby>な、<ruby>専門<rt>せんもん</rt></ruby><ruby>的<rt>てき</rt></ruby>な<ruby>知識<rt>ちしき</rt></ruby>と<ruby>技能<rt>ぎのう</rt></ruby>を<ruby>紹介<rt>しょうかい</rt></ruby>します。</p>
+<p>お<ruby>店<rt>みせ</rt></ruby>で<ruby>接客<rt>せっきゃく</rt></ruby>の<ruby>仕事<rt>しごと</rt></ruby>をするとき、いろいろな<ruby>判断<rt>はんだん</rt></ruby>が<ruby>必要<rt>ひつよう</rt></ruby>になります。テキストに<ruby>書<rt>か</rt></ruby>いていないことも、<ruby>正<rt>ただ</rt></ruby>しく<ruby>対応<rt>たいおう</rt></ruby>してください。</p>
+<p>このテキストの<ruby>日本語<rt>にほんご</rt></ruby>は、<ruby>外食業<rt>がいしょくぎょう</rt></ruby>（<ruby>飲食店<rt>いんしょくてん</rt></ruby>など）で<ruby>働<rt>はたら</rt></ruby>くために<ruby>必要<rt>ひつよう</rt></ruby>な<ruby>日本語<rt>にほんご</rt></ruby>です。</p>
+<p>このテキストを<ruby>使<rt>つか</rt></ruby>う<ruby>前<rt>まえ</rt></ruby>に、<ruby>特定技能<rt>とくていぎのう</rt></ruby>１<ruby>号<rt>ごう</rt></ruby>の<ruby>学習<rt>がくしゅう</rt></ruby>テキストもよく<ruby>勉強<rt>べんきょう</rt></ruby>してください。</p>
+
+<div class="chapter"><span class="num">１</span><h2><ruby>接客<rt>せっきゃく</rt></ruby>に<ruby>関<rt>かん</rt></ruby>する<ruby>知識<rt>ちしき</rt></ruby></h2></div>
+<p><ruby>飲食店<rt>いんしょくてん</rt></ruby>では、お<ruby>客<rt>きゃく</rt></ruby><ruby>様<rt>さま</rt></ruby>に<ruby>満足<rt>まんぞく</rt></ruby>してもらうことが<ruby>大切<rt>たいせつ</rt></ruby>です。<ruby>店舗<rt>てんぽ</rt></ruby><ruby>責任者<rt>せきにんしゃ</rt></ruby>（<ruby>店長<rt>てんちょう</rt></ruby>など）や<ruby>時間帯<rt>じかんたい</rt></ruby><ruby>責任者<rt>せきにんしゃ</rt></ruby>は、<ruby>接客<rt>せっきゃく</rt></ruby>の<ruby>責任者<rt>せきにんしゃ</rt></ruby>です。<ruby>料理<rt>りょうり</rt></ruby>、サービス、<ruby>清潔<rt>せいけつ</rt></ruby>さ、ミス、クレーム（苦情）<ruby>対応<rt>たいおう</rt></ruby>などに<ruby>責任<rt>せきにん</rt></ruby>を<ruby>持<rt>も</rt></ruby>って<ruby>行動<rt>こうどう</rt></ruby>してください。</p>
+<p>また、<ruby>店舗<rt>てんぽ</rt></ruby><ruby>責任者<rt>せきにんしゃ</rt></ruby>は<ruby>従業員<rt>じゅうぎょういん</rt></ruby>の<ruby>手本<rt>てほん</rt></ruby>になってください。<ruby>従業員<rt>じゅうぎょういん</rt></ruby>には、QSCスタンダード（<ruby>基準<rt>きじゅん</rt></ruby>）などの<ruby>接客<rt>せっきゃく</rt></ruby>の<ruby>手本<rt>てほん</rt></ruby>を<ruby>見<rt>み</rt></ruby>せます。<ruby>指導者<rt>しどうしゃ</rt></ruby>・<ruby>管理者<rt>かんりしゃ</rt></ruby>として、次のこともします。</p>
+<ul class="plain">
+  <li><ruby>作業<rt>さぎょう</rt></ruby>マニュアルを<ruby>作<rt>つく</rt></ruby>ったり、<ruby>見直<rt>みなお</rt></ruby>したりする</li>
+  <li><ruby>従業員<rt>じゅうぎょういん</rt></ruby>の<ruby>教育<rt>きょういく</rt></ruby>とトレーニングをする</li>
+  <li><ruby>顧客<rt>こきゃく</rt></ruby><ruby>管理<rt>かんり</rt></ruby>（お<ruby>客<rt>きゃく</rt></ruby><ruby>様<rt>さま</rt></ruby>の<ruby>情報<rt>じょうほう</rt></ruby>の<ruby>管理<rt>かんり</rt></ruby>）をする</li>
+</ul>
+<h3>（１）<ruby>接客<rt>せっきゃく</rt></ruby>サービスについて</h3>
+
+<h4><span class="mk">①</span><ruby>接客<rt>せっきゃく</rt></ruby>サービスの<ruby>特性<rt>とくせい</rt></ruby></h4>
+<p><ruby>日本<rt>にほん</rt></ruby>の<ruby>接客<rt>せっきゃく</rt></ruby>サービスには、「おもてなし」があります。おもてなしは、お客様を大切に思い、心を込めて接する気持ちです。</p>
+<div class="word"><span class="lbl">ことばの<ruby>説明<rt>せつめい</rt></ruby></span><dl><dt>おもてなし（＝ホスピタリティ）</dt><dd>お<ruby>客様<rt>きゃくさま</rt></ruby>を<ruby>大切<rt>たいせつ</rt></ruby>に<ruby>思<rt>おも</rt></ruby>い、<ruby>心<rt>こころ</rt></ruby>をこめて<ruby>接<rt>せっ</rt></ruby>する<ruby>気持<rt>きも</rt></ruby>ち。</dd></dl></div>
+<p>おもてなしの<ruby>心<rt>こころ</rt></ruby>をお<ruby>客様<rt>きゃくさま</rt></ruby>に<ruby>伝<rt>つた</rt></ruby>えるために、<ruby>店<rt>みせ</rt></ruby>の<ruby>環境<rt>かんきょう</rt></ruby>づくりと<ruby>従業員<rt>じゅうぎょういん</rt></ruby>の<ruby>教育<rt>きょういく</rt></ruby>が<ruby>大切<rt>たいせつ</rt></ruby>です。</p>
+
+<h4><span class="mk">②</span><ruby>顧客<rt>こきゃく</rt></ruby><ruby>満足<rt>まんぞく</rt></ruby>について</h4>
+<p>お客様は、店に来るとき、味、サービス、清潔さ、雰囲気などに期待しています。</p>
+<ul class="plain">
+<li><ruby>期待<rt>きたい</rt></ruby>より<ruby>良<rt>よ</rt></ruby>いと、お<ruby>客様<rt>きゃくさま</rt></ruby>は<ruby>満足<rt>まんぞく</rt></ruby>します。もう<ruby>一度<rt>いちど</rt></ruby><ruby>来<rt>く</rt></ruby>る<ruby>人<rt>ひと</rt></ruby>（リピーター）が<ruby>増<rt>ふ</rt></ruby>えます。</li>
+<li><ruby>期待<rt>きたい</rt></ruby>より<ruby>悪<rt>わる</rt></ruby>いと、お<ruby>客様<rt>きゃくさま</rt></ruby>は<ruby>不満<rt>ふまん</rt></ruby>を<ruby>感<rt>かん</rt></ruby>じます。もう来ません。</li>
+<li>お<ruby>客様<rt>きゃくさま</rt></ruby>が<ruby>友<rt>とも</rt></ruby>だちにクレーム（苦情）を<ruby>伝<rt>つた</rt></ruby>えることもあります。クレーム（苦情）は<ruby>広<rt>ひろ</rt></ruby>がりやすいです。まだ<ruby>来<rt>き</rt></ruby>ていないお<ruby>客様<rt>きゃくさま</rt></ruby>も<ruby>減<rt>へ</rt></ruby>ります。</li>
+</ul>
+
+<h4><span class="mk">③</span><ruby>顧客<rt>こきゃく</rt></ruby><ruby>満足<rt>まんぞく</rt></ruby>に<ruby>関係<rt>かんけい</rt></ruby>する<ruby>要因<rt>よういん</rt></ruby>（QSCAの<ruby>関係<rt>かんけい</rt></ruby>）</h4>
+<p>お<ruby>客様<rt>きゃくさま</rt></ruby>の<ruby>満足<rt>まんぞく</rt></ruby>と<ruby>価値<rt>かち</rt></ruby>（Value）には、４つの<ruby>大切<rt>たいせつ</rt></ruby>なことがあります。</p>
+<div class="word"><span class="lbl">ことばの<ruby>説明<rt>せつめい</rt></ruby></span><dl>
+<dt>QSCA</dt><dd>次の４つの英語の最初の文字です。</dd>
+<dt>Quality（クオリティ）</dt><dd><ruby>料理<rt>りょうり</rt></ruby>の<ruby>品質<rt>ひんしつ</rt></ruby></dd>
+<dt>Service（サービス）</dt><dd><ruby>接客<rt>せっきゃく</rt></ruby>のサービス</dd>
+<dt>Cleanliness（クレンリネス）</dt><dd><ruby>清潔<rt>せいけつ</rt></ruby>さ</dd>
+<dt>Atmosphere（アトモスフィア）</dt><dd><ruby>店<rt>みせ</rt></ruby>の<ruby>雰囲気<rt>ふんいき</rt></ruby></dd>
+</dl></div>
+<p>この４つは、全て大切ですから、きちんと対応して下さい。</p>
+
+<h4><ruby>料理<rt>りょうり</rt></ruby>の<ruby>品質<rt>ひんしつ</rt></ruby>（Quality）</h4>
+<ul class="check">
+<li>ア：いつもと<ruby>同<rt>おな</rt></ruby>じ<ruby>味<rt>あじ</rt></ruby>・<ruby>分量<rt>ぶんりょう</rt></ruby>・<ruby>盛<rt>も</rt></ruby>り<ruby>付<rt>つ</rt></ruby>けで<ruby>出<rt>だ</rt></ruby>しているか、<ruby>確認<rt>かくにん</rt></ruby>してください。</li>
+<li>イ：メニューが<ruby>清潔<rt>せいけつ</rt></ruby>か、<ruby>確認<rt>かくにん</rt></ruby>してください。</li>
+<li>ウ：<ruby>注文<rt>ちゅうもん</rt></ruby>どおりに、<ruby>正<rt>ただ</rt></ruby>しい<ruby>温度<rt>おんど</rt></ruby>・<ruby>状態<rt>じょうたい</rt></ruby>・<ruby>時間<rt>じかん</rt></ruby>で<ruby>出<rt>だ</rt></ruby>しているか、<ruby>確認<rt>かくにん</rt></ruby>してください。</li>
+</ul>
+
+<h4>サービス（Service）</h4>
+<ul class="check">
+<li>ア：<ruby>従業員<rt>じゅうぎょういん</rt></ruby>が、<ruby>笑顔<rt>えがお</rt></ruby>・アイコンタクト・<ruby>正<rt>ただ</rt></ruby>しい<ruby>姿勢<rt>しせい</rt></ruby>・<ruby>声<rt>こえ</rt></ruby>でお<ruby>客様<rt>きゃくさま</rt></ruby>に<ruby>応対<rt>おうたい</rt></ruby>しているか、<ruby>確認<rt>かくにん</rt></ruby>してください。</li>
+<li>イ：お<ruby>客様<rt>きゃくさま</rt></ruby>を<ruby>無視<rt>むし</rt></ruby>したり、<ruby>失礼<rt>しつれい</rt></ruby>な<ruby>態度<rt>たいど</rt></ruby>をとったりする<ruby>従業員<rt>じゅうぎょういん</rt></ruby>がいないか、<ruby>確認<rt>かくにん</rt></ruby>してください。いたら、<ruby>注意<rt>ちゅうい</rt></ruby>してください。</li>
+<li>ウ：お<ruby>客様<rt>きゃくさま</rt></ruby>のお<ruby>迎<rt>むか</rt></ruby>えからお<ruby>帰<rt>かえ</rt></ruby>りまで、<ruby>社内<rt>しゃない</rt></ruby><ruby>基準<rt>きじゅん</rt></ruby>（サービスマニュアル）どおりか、<ruby>確認<rt>かくにん</rt></ruby>してください。</li>
+<li>エ：<ruby>従業員<rt>じゅうぎょういん</rt></ruby>が、きびきびした<ruby>動作<rt>どうさ</rt></ruby>と<ruby>明<rt>あか</rt></ruby>るい<ruby>表情<rt>ひょうじょう</rt></ruby>で<ruby>接客<rt>せっきゃく</rt></ruby>しているか、<ruby>確認<rt>かくにん</rt></ruby>してください。</li>
+<li>オ：<ruby>従業員<rt>じゅうぎょういん</rt></ruby>（<ruby>特<rt>とく</rt></ruby>に<ruby>新人<rt>しんじん</rt></ruby>）のサービスが、<ruby>一定<rt>いってい</rt></ruby>のレベルか、<ruby>確認<rt>かくにん</rt></ruby>してください。</li>
+<li>カ：フルサービスの<ruby>店<rt>みせ</rt></ruby>（<ruby>従業員<rt>じゅうぎょういん</rt></ruby>が<ruby>席<rt>せき</rt></ruby>まで<ruby>行<rt>い</rt></ruby>くサービスの<ruby>店<rt>みせ</rt></ruby>）で、<ruby>注文<rt>ちゅうもん</rt></ruby><ruby>受<rt>う</rt></ruby>けを<ruby>放置<rt>ほうち</rt></ruby>していないか、<ruby>確認<rt>かくにん</rt></ruby>してください。</li>
+<li>キ：できた<ruby>料理<rt>りょうり</rt></ruby>を、<ruby>正<rt>ただ</rt></ruby>しい<ruby>温度<rt>おんど</rt></ruby>・<ruby>状態<rt>じょうたい</rt></ruby>で、正しい時間以内に、お<ruby>客様<rt>きゃくさま</rt></ruby>のテーブルに<ruby>出<rt>だ</rt></ruby>しているか、<ruby>確認<rt>かくにん</rt></ruby>してください。</li>
+<li>ク：<ruby>水<rt>みず</rt></ruby>や、<ruby>食事<rt>しょくじ</rt></ruby>の<ruby>前<rt>まえ</rt></ruby>のアルコールドリンクが<ruby>遅<rt>おく</rt></ruby>れていないか、<ruby>確認<rt>かくにん</rt></ruby>してください。<ruby>食事<rt>しょくじ</rt></ruby>の<ruby>後<rt>あと</rt></ruby>のデザートやコーヒーも、<ruby>正<rt>ただ</rt></ruby>しいタイミングで<ruby>出<rt>だ</rt></ruby>しているか、<ruby>確認<rt>かくにん</rt></ruby>してください。<ruby>遅<rt>おく</rt></ruby>れていたら、<ruby>従業員<rt>じゅうぎょういん</rt></ruby>に<ruby>指示<rt>しじ</rt></ruby>してください。</li>
+<li>ケ：<ruby>注文<rt>ちゅうもん</rt></ruby><ruby>受<rt>う</rt></ruby>けから<ruby>提供<rt>ていきょう</rt></ruby>までの<ruby>時間<rt>じかん</rt></ruby>が、<ruby>社内<rt>しゃない</rt></ruby><ruby>基準<rt>きじゅん</rt></ruby>の<ruby>中<rt>なか</rt></ruby>か、<ruby>確認<rt>かくにん</rt></ruby>してください。</li>
+<li>コ：<ruby>中間<rt>ちゅうかん</rt></ruby>サービス（<ruby>食事<rt>しょくじ</rt></ruby><ruby>中<rt>ちゅう</rt></ruby>の<ruby>水<rt>みず</rt></ruby>のつぎ<ruby>足<rt>た</rt></ruby>し、いらない<ruby>食器<rt>しょっき</rt></ruby>の<ruby>中間<rt>ちゅうかん</rt></ruby><ruby>下<rt>さ</rt></ruby>げなど）ができているか、<ruby>確認<rt>かくにん</rt></ruby>してください。<ruby>必要<rt>ひつよう</rt></ruby>なら、<ruby>従業員<rt>じゅうぎょういん</rt></ruby>に<ruby>指示<rt>しじ</rt></ruby>してください。</li>
+<li>サ：お<ruby>客様<rt>きゃくさま</rt></ruby>が<ruby>帰<rt>かえ</rt></ruby>った<ruby>後<rt>あと</rt></ruby>は、<ruby>忘<rt>わす</rt></ruby>れ<ruby>物<rt>もの</rt></ruby>の<ruby>確認<rt>かくにん</rt></ruby>、バッシング（<ruby>後片<rt>あとかた</rt></ruby>づけ）、<ruby>食器<rt>しょっき</rt></ruby><ruby>下<rt>さ</rt></ruby>げ、<ruby>椅子<rt>いす</rt></ruby>と<ruby>床<rt>ゆか</rt></ruby>の<ruby>掃除<rt>そうじ</rt></ruby>をします。<ruby>次<rt>つぎ</rt></ruby>のお<ruby>客様<rt>きゃくさま</rt></ruby>のためのテーブルセッティングを<ruby>早<rt>はや</rt></ruby>くしているか、<ruby>確認<rt>かくにん</rt></ruby>してください。<ruby>必要<rt>ひつよう</rt></ruby>なら<ruby>手伝<rt>てつだ</rt></ruby>ってください。</li>
+<li>シ：レジでお<ruby>客様<rt>きゃくさま</rt></ruby>を<ruby>長<rt>なが</rt></ruby>く<ruby>待<rt>ま</rt></ruby>たせていないか、<ruby>確認<rt>かくにん</rt></ruby>してください。<ruby>必要<rt>ひつよう</rt></ruby>なら<ruby>手伝<rt>てつだ</rt></ruby>ってください。</li>
+<li>ス：よく<ruby>来<rt>く</rt></ruby>るリピーターには、あいさつのほかに<ruby>一言<rt>ひとこと</rt></ruby><ruby>声<rt>こえ</rt></ruby>をかけます。テーブル<ruby>担当者<rt>たんとうしゃ</rt></ruby>には、お<ruby>客様<rt>きゃくさま</rt></ruby>の<ruby>好<rt>この</rt></ruby>みを<ruby>伝<rt>つた</rt></ruby>えます。お連れ様（いっしょに来た人）への気配りができているか、<ruby>確認<rt>かくにん</rt></ruby>してください。</li>
+</ul>
+
+<h4><ruby>清潔<rt>せいけつ</rt></ruby>さ（Cleanliness）</h4>
+<ul class="check">
+<li>ア：<ruby>客席<rt>きゃくせき</rt></ruby>の<ruby>周<rt>まわ</rt></ruby>りに<ruby>汚<rt>よご</rt></ruby>れやほこりがないか、<ruby>確認<rt>かくにん</rt></ruby>してください。</li>
+<li>イ：テーブルの<ruby>上<rt>うえ</rt></ruby>の<ruby>備品<rt>びひん</rt></ruby>（<ruby>塩<rt>しお</rt></ruby>、<ruby>砂糖<rt>さとう</rt></ruby>、コショウ、ソースなど）が<ruby>清潔<rt>せいけつ</rt></ruby>で、十分入っているか、<ruby>確認<rt>かくにん</rt></ruby>してください。</li>
+<li>ウ：<ruby>出<rt>だ</rt></ruby>す<ruby>食器<rt>しょっき</rt></ruby>、コップ、グラスが<ruby>清潔<rt>せいけつ</rt></ruby>か、<ruby>確認<rt>かくにん</rt></ruby>してください。</li>
+<li>エ：<ruby>出<rt>だ</rt></ruby>すシルバー（ナイフ、フォーク、スプーン）が<ruby>清潔<rt>せいけつ</rt></ruby>か、<ruby>確認<rt>かくにん</rt></ruby>してください。</li>
+<li>オ：<ruby>床<rt>ゆか</rt></ruby>に<ruby>残飯<rt>ざんぱん</rt></ruby>やゴミがなく、<ruby>清潔<rt>せいけつ</rt></ruby>か、<ruby>確認<rt>かくにん</rt></ruby>してください。</li>
+<li>カ：<ruby>窓<rt>まど</rt></ruby>ガラスにくもりや<ruby>汚<rt>よご</rt></ruby>れがないか、<ruby>確認<rt>かくにん</rt></ruby>してください。</li>
+<li>キ：<ruby>照明<rt>しょうめい</rt></ruby><ruby>器具<rt>きぐ</rt></ruby>にほこりや<ruby>蜘蛛<rt>くも</rt></ruby>の<ruby>巣<rt>す</rt></ruby>がないか、<ruby>確認<rt>かくにん</rt></ruby>してください。</li>
+<li>ク：<ruby>店内<rt>てんない</rt></ruby>の<ruby>飾<rt>かざ</rt></ruby>りが<ruby>清潔<rt>せいけつ</rt></ruby>か、<ruby>確認<rt>かくにん</rt></ruby>してください。</li>
+<li>ケ：お<ruby>客様<rt>きゃくさま</rt></ruby><ruby>用<rt>よう</rt></ruby>のトイレをチェックして、いやなにおいがなく、<ruby>清潔<rt>せいけつ</rt></ruby>か、<ruby>確認<rt>かくにん</rt></ruby>してください。</li>
+<li>コ：<ruby>接客<rt>せっきゃく</rt></ruby>する<ruby>従業員<rt>じゅうぎょういん</rt></ruby>の制服に、汚れなどがないか、<ruby>確認<rt>かくにん</rt></ruby>してください。</li>
+</ul>
+
+<h4><ruby>雰囲気<rt>ふんいき</rt></ruby>（Atmosphere）</h4>
+<ul class="check">
+<li>ア：<ruby>店内<rt>てんない</rt></ruby>のエアコンの<ruby>温度<rt>おんど</rt></ruby>が<ruby>快適<rt>かいてき</rt></ruby>か、<ruby>確認<rt>かくにん</rt></ruby>してください。</li>
+<li>イ：店内の照明の明るさが快適か、<ruby>確認<rt>かくにん</rt></ruby>してください。</li>
+<li>ウ：つけるべき<ruby>電飾<rt>でんしょく</rt></ruby><ruby>看板<rt>かんばん</rt></ruby>やイルミネーションがついているか、<ruby>確認<rt>かくにん</rt></ruby>してください。</li>
+<li>エ：BGM（音楽）の曲が店に合っていて、音の大きさが適切か、<ruby>確認<rt>かくにん</rt></ruby>してください。</li>
+</ul>
+
+<h3>（２）<ruby>接客<rt>せっきゃく</rt></ruby>における<ruby>基本<rt>きほん</rt></ruby><ruby>動作<rt>どうさ</rt></ruby></h3>
+<p><ruby>客席<rt>きゃくせき</rt></ruby>での<ruby>動作<rt>どうさ</rt></ruby>の<ruby>基本<rt>きほん</rt></ruby>は、<ruby>次<rt>つぎ</rt></ruby>の３つです。</p>
+<ul class="plain">
+<li><b>ニコニコ</b>：いつも<ruby>口角<rt>こうかく</rt></ruby>を<ruby>上<rt>あ</rt></ruby>げて、<ruby>笑顔<rt>えがお</rt></ruby>で<ruby>対応<rt>たいおう</rt></ruby>します。</li>
+<li><b>ハキハキ</b>：お<ruby>客様<rt>きゃくさま</rt></ruby>の<ruby>質問<rt>しつもん</rt></ruby>に、<ruby>正<rt>ただ</rt></ruby>しく<ruby>答<rt>こた</rt></ruby>えます。</li>
+<li><b>キビキビ</b>：だらだら<ruby>歩<rt>ある</rt></ruby>いたり、<ruby>反応<rt>はんのう</rt></ruby>が<ruby>遅<rt>おそ</rt></ruby>かったりしません。</li>
+</ul>
+
+<h4><span class="mk">①</span>あいさつ</h4>
+<p><ruby>従業員<rt>じゅうぎょういん</rt></ruby>が、お<ruby>客様<rt>きゃくさま</rt></ruby>にも、ほかの<ruby>従業員<rt>じゅうぎょういん</rt></ruby>にも、<ruby>場面<rt>ばめん</rt></ruby>に<ruby>合<rt>あ</rt></ruby>ったあいさつをしているか、<ruby>確認<rt>かくにん</rt></ruby>してください。</p>
+<p><ruby>従業員<rt>じゅうぎょういん</rt></ruby>どうしのあいさつは<ruby>大切<rt>たいせつ</rt></ruby>です。「<ruby>今日<rt>きょう</rt></ruby>も<ruby>気持<rt>きも</rt></ruby>ちよく、みんなで<ruby>協力<rt>きょうりょく</rt></ruby>して<ruby>仕事<rt>しごと</rt></ruby>をしましょう」という<ruby>気持<rt>きも</rt></ruby>ちを<ruby>伝<rt>つた</rt></ruby>えるためです。あいさつをすると、<ruby>心<rt>こころ</rt></ruby>で<ruby>握手<rt>あくしゅ</rt></ruby>をした<ruby>状態<rt>じょうたい</rt></ruby>になります。</p>
+<ul class="check">
+<li>ア：<ruby>従業員<rt>じゅうぎょういん</rt></ruby>が、<ruby>出勤<rt>しゅっきん</rt></ruby>のときに、ほかの<ruby>従業員<rt>じゅうぎょういん</rt></ruby>にあいさつしているか、<ruby>確認<rt>かくにん</rt></ruby>してください。</li>
+<li>イ：<ruby>従業員<rt>じゅうぎょういん</rt></ruby>が、<ruby>退勤<rt>たいきん</rt></ruby>のときに、ほかの<ruby>従業員<rt>じゅうぎょういん</rt></ruby>にあいさつしているか、<ruby>確認<rt>かくにん</rt></ruby>してください。</li>
+</ul>
+<div class="note"><span class="lbl">メモ</span>お<ruby>客様<rt>きゃくさま</rt></ruby>へのあいさつは、<ruby>特定技能<rt>とくていぎのう</rt></ruby>１<ruby>号<rt>ごう</rt></ruby>のテキストも<ruby>見<rt>み</rt></ruby>てください。</div>
+
+<h4><span class="mk">②</span><ruby>笑顔<rt>えがお</rt></ruby></h4>
+<p><ruby>従業員<rt>じゅうぎょういん</rt></ruby>が、お<ruby>客様<rt>きゃくさま</rt></ruby>にも、ほかの<ruby>従業員<rt>じゅうぎょういん</rt></ruby>にも、<ruby>場面<rt>ばめん</rt></ruby>に<ruby>合<rt>あ</rt></ruby>った<ruby>笑顔<rt>えがお</rt></ruby>をしているか、<ruby>確認<rt>かくにん</rt></ruby>してください。</p>
+<p><ruby>従業員<rt>じゅうぎょういん</rt></ruby>どうしが<ruby>笑顔<rt>えがお</rt></ruby>で<ruby>目<rt>め</rt></ruby>を<ruby>合<rt>あ</rt></ruby>わせること（スマイル＆アイコンタクト）には、「<ruby>今日<rt>きょう</rt></ruby>も<ruby>楽<rt>たの</rt></ruby>しく<ruby>仕事<rt>しごと</rt></ruby>をしましょう」という<ruby>意味<rt>いみ</rt></ruby>があります。これで、<ruby>楽<rt>たの</rt></ruby>しく<ruby>接客<rt>せっきゃく</rt></ruby>する<ruby>雰囲気<rt>ふんいき</rt></ruby>ができます。お<ruby>客様<rt>きゃくさま</rt></ruby>へのサービスの<ruby>質<rt>しつ</rt></ruby>も<ruby>上<rt>あ</rt></ruby>がります。</p>
+<ul class="check">
+<li>ア：<ruby>従業員<rt>じゅうぎょういん</rt></ruby>が、<ruby>出勤<rt>しゅっきん</rt></ruby>・<ruby>退勤<rt>たいきん</rt></ruby>のときや、お<ruby>客様<rt>きゃくさま</rt></ruby>とすれ<ruby>違<rt>ちが</rt></ruby>うときに、いったん<ruby>止<rt>と</rt></ruby>まります。<ruby>体<rt>からだ</rt></ruby>をお<ruby>客様<rt>きゃくさま</rt></ruby>に<ruby>向<rt>む</rt></ruby>けて、スマイル＆アイコンタクトをしているか、<ruby>確認<rt>かくにん</rt></ruby>してください。</li>
+<li>イ：<ruby>従業員<rt>じゅうぎょういん</rt></ruby>どうしが、<ruby>笑顔<rt>えがお</rt></ruby>で<ruby>話<rt>はな</rt></ruby>しているか、<ruby>確認<rt>かくにん</rt></ruby>してください。</li>
+</ul>
+<div class="note"><span class="lbl">メモ</span>お<ruby>客様<rt>きゃくさま</rt></ruby>への<ruby>笑顔<rt>えがお</rt></ruby>は、<ruby>特定技能<rt>とくていぎのう</rt></ruby>１<ruby>号<rt>ごう</rt></ruby>のテキストも<ruby>見<rt>み</rt></ruby>てください。</div>
+
+<h4><span class="mk">③</span><ruby>服装<rt>ふくそう</rt></ruby>、<ruby>身<rt>み</rt></ruby>だしなみ</h4>
+<p><ruby>清潔<rt>せいけつ</rt></ruby>な<ruby>服装<rt>ふくそう</rt></ruby>と、きちんとした<ruby>身<rt>み</rt></ruby>だしなみは、お<ruby>客様<rt>きゃくさま</rt></ruby>に<ruby>安心<rt>あんしん</rt></ruby>を<ruby>与<rt>あた</rt></ruby>えます。<ruby>気持<rt>きも</rt></ruby>ちよく<ruby>食事<rt>しょくじ</rt></ruby>ができる<ruby>雰囲気<rt>ふんいき</rt></ruby>を<ruby>作<rt>つく</rt></ruby>ります。</p>
+<ul class="check">
+<li>ア：<ruby>従業員<rt>じゅうぎょういん</rt></ruby>が、<ruby>自分<rt>じぶん</rt></ruby>の<ruby>店<rt>みせ</rt></ruby>の<ruby>基準<rt>きじゅん</rt></ruby>（ハウスルール）どおりに、<ruby>服装<rt>ふくそう</rt></ruby>と<ruby>身<rt>み</rt></ruby>だしなみを<ruby>自分<rt>じぶん</rt></ruby>でチェックしてから、<ruby>仕事<rt>しごと</rt></ruby>を<ruby>始<rt>はじ</rt></ruby>めているか、<ruby>確認<rt>かくにん</rt></ruby>してください。</li>
+<li>イ：<ruby>店<rt>みせ</rt></ruby>の<ruby>基準<rt>きじゅん</rt></ruby>（ハウスルール）を<ruby>守<rt>まも</rt></ruby>っていない<ruby>服装<rt>ふくそう</rt></ruby>・<ruby>身<rt>み</rt></ruby>だしなみの<ruby>従業員<rt>じゅうぎょういん</rt></ruby>がいないか、<ruby>確認<rt>かくにん</rt></ruby>してください。いたら、すぐに<ruby>注意<rt>ちゅうい</rt></ruby>して、<ruby>基準<rt>きじゅん</rt></ruby>を<ruby>守<rt>まも</rt></ruby>らせてください。</li>
+</ul>
+
+<h4><span class="mk">④</span><ruby>立<rt>た</rt></ruby>ち<ruby>方<rt>かた</rt></ruby>、<ruby>歩<rt>ある</rt></ruby>き<ruby>方<rt>かた</rt></ruby></h4>
+<p>お<ruby>客様<rt>きゃくさま</rt></ruby>は<ruby>座<rt>すわ</rt></ruby>って、<ruby>従業員<rt>じゅうぎょういん</rt></ruby>の<ruby>動<rt>うご</rt></ruby>きを<ruby>見<rt>み</rt></ruby>ています。ですから、<ruby>立<rt>た</rt></ruby>ち<ruby>方<rt>かた</rt></ruby>や<ruby>歩<rt>ある</rt></ruby>き<ruby>方<rt>かた</rt></ruby>が<ruby>気<rt>き</rt></ruby>になります。だらだら<ruby>歩<rt>ある</rt></ruby>いたり、ぶらぶら<ruby>歩<rt>ある</rt></ruby>いたりすると、サービス<ruby>全体<rt>ぜんたい</rt></ruby>の<ruby>印象<rt>いんしょう</rt></ruby>が<ruby>悪<rt>わる</rt></ruby>くなります。<ruby>店<rt>みせ</rt></ruby>の<ruby>雰囲気<rt>ふんいき</rt></ruby>も<ruby>悪<rt>わる</rt></ruby>くなります。</p>
+<ul class="check">
+<li>ア：<ruby>待<rt>ま</rt></ruby>つときは、<ruby>決<rt>き</rt></ruby>められた<ruby>場所<rt>ばしょ</rt></ruby>に、<ruby>背筋<rt>せすじ</rt></ruby>を<ruby>伸<rt>の</rt></ruby>ばして<ruby>立<rt>た</rt></ruby>ちます。お<ruby>客様<rt>きゃくさま</rt></ruby>の<ruby>入店<rt>にゅうてん</rt></ruby>・<ruby>注文<rt>ちゅうもん</rt></ruby>・<ruby>呼<rt>よ</rt></ruby>び<ruby>出<rt>だ</rt></ruby>しに、すぐ<ruby>反応<rt>はんのう</rt></ruby>できるように<ruby>注意<rt>ちゅうい</rt></ruby>してください。</li>
+<li>イ：お<ruby>客様<rt>きゃくさま</rt></ruby>とすれ<ruby>違<rt>ちが</rt></ruby>うときは、<ruby>脇<rt>わき</rt></ruby>に<ruby>寄<rt>よ</rt></ruby>って<ruby>止<rt>と</rt></ruby>まります。<ruby>会釈<rt>えしゃく</rt></ruby>して、お<ruby>客様<rt>きゃくさま</rt></ruby>を<ruby>先<rt>さき</rt></ruby>に<ruby>通<rt>とお</rt></ruby>します。<ruby>料理<rt>りょうり</rt></ruby>を<ruby>運<rt>はこ</rt></ruby>んでいるときも<ruby>同<rt>おな</rt></ruby>じです。</li>
+<li>ウ：だらだら<ruby>客席<rt>きゃくせき</rt></ruby>を<ruby>歩<rt>ある</rt></ruby>いている<ruby>従業員<rt>じゅうぎょういん</rt></ruby>がいないか、<ruby>確認<rt>かくにん</rt></ruby>してください。トレンチ（お<ruby>盆<rt>ぼん</rt></ruby>）をぶらぶら<ruby>手<rt>て</rt></ruby>に<ruby>下<rt>さ</rt></ruby>げて<ruby>歩<rt>ある</rt></ruby>いていないか、<ruby>確認<rt>かくにん</rt></ruby>してください。</li>
+<li>エ：<ruby>店内<rt>てんない</rt></ruby>を<ruby>走<rt>はし</rt></ruby>ったり、<ruby>大<rt>おお</rt></ruby>きな<ruby>足音<rt>あしおと</rt></ruby>を<ruby>立<rt>た</rt></ruby>てて<ruby>歩<rt>ある</rt></ruby>いたりする<ruby>従業員<rt>じゅうぎょういん</rt></ruby>がいないか、<ruby>確認<rt>かくにん</rt></ruby>してください。<ruby>見<rt>み</rt></ruby>つけたら、その<ruby>場<rt>ば</rt></ruby>で<ruby>注意<rt>ちゅうい</rt></ruby>して、<ruby>直<rt>なお</rt></ruby>させてください。</li>
+</ul>
+
+<h4><span class="mk">⑤</span>お<ruby>辞儀<rt>じぎ</rt></ruby></h4>
+<p>お<ruby>辞儀<rt>じぎ</rt></ruby>は、<ruby>日本<rt>にほん</rt></ruby>の<ruby>礼法<rt>れいほう</rt></ruby>（マナー）の<ruby>基本<rt>きほん</rt></ruby>です。<ruby>鎌倉<rt>かまくら</rt></ruby><ruby>時代<rt>じだい</rt></ruby>から<ruby>続<rt>つづ</rt></ruby>いています。お<ruby>辞儀<rt>じぎ</rt></ruby>は、あいさつ・<ruby>感謝<rt>かんしゃ</rt></ruby>・<ruby>敬意<rt>けいい</rt></ruby>（リスペクト）の<ruby>心<rt>こころ</rt></ruby>を、<ruby>形<rt>かたち</rt></ruby>で<ruby>表<rt>あらわ</rt></ruby>します。</p>
+<p>お<ruby>辞儀<rt>じぎ</rt></ruby>のポイントは、<ruby>次<rt>つぎ</rt></ruby>のとおりです。</p>
+<ul class="plain">
+<li><ruby>体<rt>からだ</rt></ruby>を<ruby>相手<rt>あいて</rt></ruby>に<ruby>向<rt>む</rt></ruby>けて、姿勢をよくします。</li>
+<li><ruby>背筋<rt>せすじ</rt></ruby>を<ruby>伸<rt>の</rt></ruby>ばしたまま、<ruby>腰<rt>こし</rt></ruby>から<ruby>折<rt>お</rt></ruby>るように<ruby>頭<rt>あたま</rt></ruby>を<ruby>下<rt>さ</rt></ruby>げます。</li>
+<li>いったん<ruby>止<rt>と</rt></ruby>めて、ゆっくり<ruby>上<rt>あ</rt></ruby>げます。</li>
+</ul>
+<p><ruby>何回<rt>なんかい</rt></ruby>もトレーニングして、<ruby>形<rt>かたち</rt></ruby>ができるようにします。「<ruby>出迎<rt>でむか</rt></ruby>え３<ruby>歩<rt>ぽ</rt></ruby>、<ruby>見送<rt>みおく</rt></ruby>り７<ruby>歩<rt>ほ</rt></ruby>」と<ruby>言<rt>い</rt></ruby>います。<ruby>歓迎<rt>かんげい</rt></ruby>の<ruby>喜<rt>よろこ</rt></ruby>びと、<ruby>来店<rt>らいてん</rt></ruby>への<ruby>感謝<rt>かんしゃ</rt></ruby>の<ruby>心<rt>こころ</rt></ruby>を<ruby>添<rt>そ</rt></ruby>えます。</p>
+<div class="note"><span class="lbl">メモ</span>お<ruby>辞儀<rt>じぎ</rt></ruby>の<ruby>種類<rt>しゅるい</rt></ruby>・<ruby>方法<rt>ほうほう</rt></ruby>・<ruby>目的<rt>もくてき</rt></ruby>は、<ruby>特定技能<rt>とくていぎのう</rt></ruby>１<ruby>号<rt>ごう</rt></ruby>のテキストを<ruby>見<rt>み</rt></ruby>てください。</div>
+
+<h3>（３）<ruby>食<rt>しょく</rt></ruby>のマナーについて</h3>
+<p><ruby>食<rt>しょく</rt></ruby>のマナーは、<ruby>和食<rt>わしょく</rt></ruby>・<ruby>洋食<rt>ようしょく</rt></ruby>・<ruby>中国<rt>ちゅうごく</rt></ruby><ruby>料理<rt>りょうり</rt></ruby>で<ruby>違<rt>ちが</rt></ruby>います。でも、<ruby>基本<rt>きほん</rt></ruby>は<ruby>同<rt>おな</rt></ruby>じです。<ruby>社内<rt>しゃない</rt></ruby><ruby>基準<rt>きじゅん</rt></ruby>（サービスマニュアル）どおりに<ruby>料理<rt>りょうり</rt></ruby>を<ruby>出<rt>だ</rt></ruby>すことが<ruby>大切<rt>たいせつ</rt></ruby>です。</p>
+
+<h4><span class="mk">①</span><ruby>和食<rt>わしょく</rt></ruby>のマナー</h4>
+<ul class="check">
+<li>ア：<ruby>社内<rt>しゃない</rt></ruby><ruby>基準<rt>きじゅん</rt></ruby>（サービスマニュアル）どおりに<ruby>料理<rt>りょうり</rt></ruby>を<ruby>出<rt>だ</rt></ruby>しているか、<ruby>確認<rt>かくにん</rt></ruby>してください。</li>
+<li>イ：<ruby>食事<rt>しょくじ</rt></ruby>のペースに<ruby>合<rt>あ</rt></ruby>わせて<ruby>料理<rt>りょうり</rt></ruby>を<ruby>出<rt>だ</rt></ruby>しているか、<ruby>確認<rt>かくにん</rt></ruby>してください。</li>
+<li>ウ：<ruby>主賓<rt>しゅひん</rt></ruby>（いちばん<ruby>大切<rt>たいせつ</rt></ruby>なお<ruby>客様<rt>きゃくさま</rt></ruby>）から<ruby>先<rt>さき</rt></ruby>に<ruby>料理<rt>りょうり</rt></ruby>を<ruby>出<rt>だ</rt></ruby>しているか、<ruby>確認<rt>かくにん</rt></ruby>してください。</li>
+<li>エ：<ruby>料理<rt>りょうり</rt></ruby>の<ruby>説明<rt>せつめい</rt></ruby>をしているか、<ruby>確認<rt>かくにん</rt></ruby>してください。</li>
+<li>オ：<ruby>下<rt>さ</rt></ruby>げるものを、<ruby>正<rt>ただ</rt></ruby>しいタイミングで<ruby>下<rt>さ</rt></ruby>げているか、<ruby>確認<rt>かくにん</rt></ruby>してください。</li>
+</ul>
+
+<h4><span class="mk">②</span><ruby>洋食<rt>ようしょく</rt></ruby>のマナー</h4>
+<ul class="check">
+<li>ア：<ruby>社内<rt>しゃない</rt></ruby><ruby>基準<rt>きじゅん</rt></ruby>（サービスマニュアル）どおりに<ruby>料理<rt>りょうり</rt></ruby>を<ruby>出<rt>だ</rt></ruby>しているか、<ruby>確認<rt>かくにん</rt></ruby>してください。</li>
+<li>イ：<ruby>皿<rt>さら</rt></ruby>に<ruby>食<rt>た</rt></ruby>べ<ruby>物<rt>もの</rt></ruby>が<ruby>残<rt>のこ</rt></ruby>っていないときは、フォークとナイフの<ruby>置<rt>お</rt></ruby>き<ruby>方<rt>かた</rt></ruby>に<ruby>関係<rt>かんけい</rt></ruby>なく、<ruby>皿<rt>さら</rt></ruby>を<ruby>下<rt>さ</rt></ruby>げているか、<ruby>確認<rt>かくにん</rt></ruby>してください。</li>
+<li>ウ：<ruby>出<rt>だ</rt></ruby>すのが<ruby>遅<rt>おく</rt></ruby>れている<ruby>料理<rt>りょうり</rt></ruby>がないか、<ruby>確認<rt>かくにん</rt></ruby>してください。</li>
+</ul>
+
+<h4><span class="mk">③</span><ruby>中国<rt>ちゅうごく</rt></ruby><ruby>料理<rt>りょうり</rt></ruby>のマナー</h4>
+<ul class="check">
+<li>ア：<ruby>社内<rt>しゃない</rt></ruby><ruby>基準<rt>きじゅん</rt></ruby>（サービスマニュアル）どおりに<ruby>料理<rt>りょうり</rt></ruby>を<ruby>出<rt>だ</rt></ruby>しているか、<ruby>確認<rt>かくにん</rt></ruby>してください。</li>
+<li>イ：<ruby>取<rt>と</rt></ruby>り<ruby>分<rt>わ</rt></ruby>け<ruby>用<rt>よう</rt></ruby>の<ruby>小皿<rt>こざら</rt></ruby>、スプーン、<ruby>菜箸<rt>さいばし</rt></ruby>が<ruby>足<rt>た</rt></ruby>りているか、<ruby>確認<rt>かくにん</rt></ruby>してください。</li>
+<li>ウ：<ruby>必要<rt>ひつよう</rt></ruby>なら、<ruby>食<rt>た</rt></ruby>べ<ruby>方<rt>かた</rt></ruby>や<ruby>飲<rt>の</rt></ruby>み<ruby>方<rt>かた</rt></ruby>を<ruby>説明<rt>せつめい</rt></ruby>しているか、<ruby>確認<rt>かくにん</rt></ruby>してください。</li>
+<li>エ：<ruby>必要<rt>ひつよう</rt></ruby>な<ruby>調味料<rt>ちょうみりょう</rt></ruby>がそろっているか、<ruby>確認<rt>かくにん</rt></ruby>してください。</li>
+<li>オ：<ruby>出<rt>だ</rt></ruby>すのが<ruby>遅<rt>おく</rt></ruby>れている<ruby>料理<rt>りょうり</rt></ruby>がないか、<ruby>確認<rt>かくにん</rt></ruby>してください。</li>
+</ul>
+
+<h3>（４）<ruby>配慮<rt>はいりょ</rt></ruby>が<ruby>必要<rt>ひつよう</rt></ruby>なお<ruby>客様<rt>きゃくさま</rt></ruby>への<ruby>対応<rt>たいおう</rt></ruby></h3>
+<p>お<ruby>客様<rt>きゃくさま</rt></ruby>の<ruby>中<rt>なか</rt></ruby>には、ハンディキャップ（<ruby>体<rt>からだ</rt></ruby>の<ruby>不自由<rt>ふじゆう</rt></ruby>）がある<ruby>方<rt>かた</rt></ruby>、<ruby>配慮<rt>はいりょ</rt></ruby>が<ruby>必要<rt>ひつよう</rt></ruby>な<ruby>方<rt>かた</rt></ruby>、<ruby>特別<rt>とくべつ</rt></ruby>な<ruby>事情<rt>じじょう</rt></ruby>がある<ruby>方<rt>かた</rt></ruby>がいます。<ruby>言<rt>い</rt></ruby>われたら<ruby>対応<rt>たいおう</rt></ruby>するのは<ruby>当然<rt>とうぜん</rt></ruby>です。<ruby>言<rt>い</rt></ruby>われなくても、<ruby>見<rt>み</rt></ruby>てわかるときは、<ruby>自分<rt>じぶん</rt></ruby>から<ruby>先<rt>さき</rt></ruby>に<ruby>対応<rt>たいおう</rt></ruby>してください。</p>
+<ul class="check">
+<li>ア：お<ruby>客様<rt>きゃくさま</rt></ruby>に、<ruby>食物<rt>しょくもつ</rt></ruby>アレルギーがあるか<ruby>聞<rt>き</rt></ruby>いているか、<ruby>確認<rt>かくにん</rt></ruby>してください。</li>
+<li>イ：お<ruby>子様<rt>こさま</rt></ruby><ruby>用<rt>よう</rt></ruby>のプレゼントなどがある<ruby>場合<rt>ばあい</rt></ruby>、<ruby>渡<rt>わた</rt></ruby>しているか、<ruby>確認<rt>かくにん</rt></ruby>してください。</li>
+<li>ウ：お<ruby>客様<rt>きゃくさま</rt></ruby>のテーブルの<ruby>下<rt>した</rt></ruby>や<ruby>通路<rt>つうろ</rt></ruby>が、<ruby>濡<rt>ぬ</rt></ruby>れていたり、<ruby>油<rt>あぶら</rt></ruby><ruby>汚<rt>よご</rt></ruby>れや<ruby>食材<rt>しょくざい</rt></ruby>ゴミが<ruby>落<rt>お</rt></ruby>ちていたりしないか、<ruby>確認<rt>かくにん</rt></ruby>してください。（<ruby>転<rt>ころ</rt></ruby>ばないためです。）</li>
+<li>エ：どのテーブルが<ruby>車椅子<rt>くるまいす</rt></ruby>に<ruby>対応<rt>たいおう</rt></ruby>できるか、<ruby>確認<rt>かくにん</rt></ruby>しておいてください。</li>
+<li>オ：どのテーブルが<ruby>補助犬<rt>ほじょけん</rt></ruby>と<ruby>一緒<rt>いっしょ</rt></ruby>のお<ruby>客様<rt>きゃくさま</rt></ruby>に<ruby>合<rt>あ</rt></ruby>うか、<ruby>確認<rt>かくにん</rt></ruby>しておいてください。</li>
+</ul>
+
+<h3>（５）<ruby>適切<rt>てきせつ</rt></ruby>な<ruby>配膳<rt>はいぜん</rt></ruby>（サービング）について</h3>
+<p><ruby>料理<rt>りょうり</rt></ruby>を<ruby>出<rt>だ</rt></ruby>す（<ruby>配膳<rt>はいぜん</rt></ruby>する）ときが、お<ruby>客様<rt>きゃくさま</rt></ruby>がいちばん<ruby>期待<rt>きたい</rt></ruby>する<ruby>瞬間<rt>しゅんかん</rt></ruby>です。<ruby>同<rt>おな</rt></ruby>じテーブルの<ruby>全員<rt>ぜんいん</rt></ruby>の<ruby>料理<rt>りょうり</rt></ruby>を、<ruby>遅<rt>おく</rt></ruby>れずに<ruby>出<rt>だ</rt></ruby>すことがいちばん<ruby>良<rt>よ</rt></ruby>いです。</p>
+<ul class="check">
+<li>ア：<ruby>同<rt>おな</rt></ruby>じテーブルのお<ruby>客様<rt>きゃくさま</rt></ruby>には、ほぼ<ruby>同時<rt>どうじ</rt></ruby>に<ruby>料理<rt>りょうり</rt></ruby>を<ruby>出<rt>だ</rt></ruby>しているか、<ruby>確認<rt>かくにん</rt></ruby>してください。</li>
+<li>イ：<ruby>同時<rt>どうじ</rt></ruby>に<ruby>出<rt>だ</rt></ruby>すときも、お<ruby>子様<rt>こさま</rt></ruby>の<ruby>料理<rt>りょうり</rt></ruby>を<ruby>一番<rt>いちばん</rt></ruby><ruby>先<rt>さき</rt></ruby>に<ruby>出<rt>だ</rt></ruby>しているか、<ruby>確認<rt>かくにん</rt></ruby>してください。</li>
+<li>ウ：<ruby>店<rt>みせ</rt></ruby>で<ruby>食<rt>た</rt></ruby>べた<ruby>後<rt>あと</rt></ruby>、<ruby>商品<rt>しょうひん</rt></ruby>をテイクアウトするお<ruby>客様<rt>きゃくさま</rt></ruby>には、<ruby>帰<rt>かえ</rt></ruby>る<ruby>直前<rt>ちょくぜん</rt></ruby>にテイクアウト<ruby>商品<rt>しょうひん</rt></ruby>を<ruby>渡<rt>わた</rt></ruby>しているか、<ruby>確認<rt>かくにん</rt></ruby>してください。<ruby>食<rt>た</rt></ruby>べられる<ruby>期限<rt>きげん</rt></ruby>（<ruby>消費<rt>しょうひ</rt></ruby><ruby>期限<rt>きげん</rt></ruby>）も、<ruby>必<rt>かなら</rt></ruby>ず<ruby>伝<rt>つた</rt></ruby>えてください。</li>
+</ul>
+
+<h3>（６）<ruby>接客<rt>せっきゃく</rt></ruby><ruby>基本<rt>きほん</rt></ruby><ruby>用語<rt>ようご</rt></ruby>とその<ruby>使<rt>つか</rt></ruby>い<ruby>方<rt>かた</rt></ruby></h3>
+<p><ruby>接客<rt>せっきゃく</rt></ruby><ruby>用語<rt>ようご</rt></ruby>の<ruby>大切<rt>たいせつ</rt></ruby>な<ruby>役目<rt>やくめ</rt></ruby>は、２つです。お<ruby>客様<rt>きゃくさま</rt></ruby>の<ruby>意思<rt>いし</rt></ruby>を<ruby>確認<rt>かくにん</rt></ruby>すること。<ruby>店<rt>みせ</rt></ruby>の<ruby>状況<rt>じょうきょう</rt></ruby>を<ruby>伝<rt>つた</rt></ruby>えること。ですから、お<ruby>客様<rt>きゃくさま</rt></ruby>には<ruby>正<rt>ただ</rt></ruby>しい<ruby>用語<rt>ようご</rt></ruby>（<ruby>日本語<rt>にほんご</rt></ruby>）を<ruby>話<rt>はな</rt></ruby>してください。<ruby>日本語<rt>にほんご</rt></ruby>には<ruby>敬語<rt>けいご</rt></ruby>があります。お<ruby>客様<rt>きゃくさま</rt></ruby>には、いつも<ruby>丁寧<rt>ていねい</rt></ruby>な<ruby>言葉<rt>ことば</rt></ruby>で<ruby>話<rt>はな</rt></ruby>してください。<ruby>話<rt>はな</rt></ruby>す<ruby>態度<rt>たいど</rt></ruby>・<ruby>目線<rt>めせん</rt></ruby>・<ruby>表情<rt>ひょうじょう</rt></ruby>も、<ruby>言葉<rt>ことば</rt></ruby>と<ruby>合<rt>あ</rt></ruby>わせてください。</p>
+
+<h4><span class="mk">①</span><ruby>基本的<rt>きほんてき</rt></ruby>な<ruby>接客<rt>せっきゃく</rt></ruby><ruby>用語<rt>ようご</rt></ruby></h4>
+<p><ruby>接客<rt>せっきゃく</rt></ruby><ruby>用語<rt>ようご</rt></ruby>は、お<ruby>客様<rt>きゃくさま</rt></ruby>とスムーズに<ruby>話<rt>はな</rt></ruby>すための<ruby>方法<rt>ほうほう</rt></ruby>です。<ruby>目的<rt>もくてき</rt></ruby>は、<ruby>次<rt>つぎ</rt></ruby>のとおりです。</p>
+<ul class="plain">
+<li>お<ruby>客様<rt>きゃくさま</rt></ruby>の<ruby>来店<rt>らいてん</rt></ruby>を<ruby>歓迎<rt>かんげい</rt></ruby>する<ruby>気持<rt>きも</rt></ruby>ちを<ruby>伝<rt>つた</rt></ruby>える</li>
+<li>お<ruby>客様<rt>きゃくさま</rt></ruby>の<ruby>期待<rt>きたい</rt></ruby>に<ruby>応<rt>こた</rt></ruby>える</li>
+<li>お<ruby>客様<rt>きゃくさま</rt></ruby>の<ruby>要望<rt>ようぼう</rt></ruby>を<ruby>聞<rt>き</rt></ruby>いて<ruby>対応<rt>たいおう</rt></ruby>する</li>
+<li><ruby>食事<rt>しょくじ</rt></ruby>の<ruby>後<rt>あと</rt></ruby>に、<ruby>感謝<rt>かんしゃ</rt></ruby>の<ruby>気持<rt>きも</rt></ruby>ちを<ruby>伝<rt>つた</rt></ruby>える</li>
+</ul>
+<ul class="check">
+<li>ア：お<ruby>客様<rt>きゃくさま</rt></ruby>の<ruby>目<rt>め</rt></ruby>を<ruby>見<rt>み</rt></ruby>て<ruby>言<rt>い</rt></ruby>っているか、<ruby>確認<rt>かくにん</rt></ruby>してください。</li>
+<li>イ：<ruby>用語<rt>ようご</rt></ruby>と、<ruby>表情<rt>ひょうじょう</rt></ruby>や<ruby>動作<rt>どうさ</rt></ruby>が、あっているか、<ruby>確認<rt>かくにん</rt></ruby>してください。</li>
+</ul>
+
+<h4><span class="mk">②</span>よく<ruby>間違<rt>まちが</rt></ruby>える<ruby>用語<rt>ようご</rt></ruby><ruby>表現<rt>ひょうげん</rt></ruby></h4>
+<p><ruby>言葉<rt>ことば</rt></ruby>の<ruby>使<rt>つか</rt></ruby>い<ruby>方<rt>かた</rt></ruby>が<ruby>悪<rt>わる</rt></ruby>いと、お<ruby>客様<rt>きゃくさま</rt></ruby>に<ruby>誤解<rt>ごかい</rt></ruby>や変な感じを<ruby>与<rt>あた</rt></ruby>えます。</p>
+<ul class="check">
+<li>ア：<ruby>間違<rt>まちが</rt></ruby>った<ruby>表現<rt>ひょうげん</rt></ruby>をしていないか、<ruby>現場<rt>げんば</rt></ruby>で<ruby>確認<rt>かくにん</rt></ruby>してください。</li>
+<li>イ：<ruby>見<rt>み</rt></ruby>つけたら、その<ruby>場<rt>ば</rt></ruby>で<ruby>直<rt>なお</rt></ruby>させてください。</li>
+</ul>
+
+<h4><span class="mk">③</span>そのほか<ruby>注意<rt>ちゅうい</rt></ruby>する<ruby>言葉<rt>ことば</rt></ruby>づかい</h4>
+<ul class="check">
+<li>ア：<ruby>間違<rt>まちが</rt></ruby>った<ruby>表現<rt>ひょうげん</rt></ruby>をしていないか、<ruby>現場<rt>げんば</rt></ruby>で<ruby>確認<rt>かくにん</rt></ruby>してください。</li>
+<li>イ：<ruby>見<rt>み</rt></ruby>つけたら、その<ruby>場<rt>ば</rt></ruby>で<ruby>直<rt>なお</rt></ruby>させてください。</li>
+</ul>
+
+<h4><span class="mk">④</span>サジェスティブセールス（<ruby>推奨<rt>すいしょう</rt></ruby><ruby>販売<rt>はんばい</rt></ruby>）</h4>
+<p>お<ruby>客様<rt>きゃくさま</rt></ruby>は、メニューの<ruby>情報<rt>じょうほう</rt></ruby>を<ruby>全部<rt>ぜんぶ</rt></ruby>は<ruby>知<rt>し</rt></ruby>りません。ですから、お<ruby>得<rt>とく</rt></ruby>なメニュー、<ruby>新<rt>しん</rt></ruby>メニュー、お<ruby>客様<rt>きゃくさま</rt></ruby>の<ruby>好<rt>この</rt></ruby>みに<ruby>合<rt>あ</rt></ruby>うメニュー、<ruby>食後<rt>しょくご</rt></ruby>のデザートなどをすすめます。これで、お<ruby>客様<rt>きゃくさま</rt></ruby>の<ruby>満足度<rt>まんぞくど</rt></ruby>が<ruby>上<rt>あ</rt></ruby>がります。</p>
+<div class="word"><span class="lbl">ことばの<ruby>説明<rt>せつめい</rt></ruby></span><dl><dt>サジェスティブセールス（<ruby>推奨<rt>すいしょう</rt></ruby><ruby>販売<rt>はんばい</rt></ruby>）</dt><dd>お<ruby>客様<rt>きゃくさま</rt></ruby>に、メニューをすすめる<ruby>販売<rt>はんばい</rt></ruby>の<ruby>方法<rt>ほうほう</rt></ruby>。</dd></dl></div>
+<ul class="check">
+<li>ア：<ruby>正<rt>ただ</rt></ruby>しいタイミングで、<ruby>決<rt>き</rt></ruby>められたサジェスティブセールスをしているか、<ruby>確認<rt>かくにん</rt></ruby>してください。</li>
+<li>イ：できていないときは、その<ruby>場<rt>ば</rt></ruby>で<ruby>指摘<rt>してき</rt></ruby>します。<ruby>手本<rt>てほん</rt></ruby>を<ruby>見<rt>み</rt></ruby>せて、トレーニングしてください。</li>
+</ul>
+
+<h4><span class="mk">⑤</span><ruby>電話<rt>でんわ</rt></ruby>の<ruby>対応<rt>たいおう</rt></ruby></h4>
+<p><ruby>電話<rt>でんわ</rt></ruby>では、<ruby>相手<rt>あいて</rt></ruby>の<ruby>表情<rt>ひょうじょう</rt></ruby>が<ruby>見<rt>み</rt></ruby>えません。ですから、<ruby>明<rt>あか</rt></ruby>るく、わかりやすく、<ruby>聞<rt>き</rt></ruby>きやすい<ruby>言葉<rt>ことば</rt></ruby>で<ruby>対応<rt>たいおう</rt></ruby>してください。<ruby>相手<rt>あいて</rt></ruby>が<ruby>聞<rt>き</rt></ruby>きたいことに、わかりやすく<ruby>答<rt>こた</rt></ruby>えてください。</p>
+<ul class="check">
+<li>ア：<ruby>電話<rt>でんわ</rt></ruby>に<ruby>出<rt>で</rt></ruby>ている<ruby>従業員<rt>じゅうぎょういん</rt></ruby>の<ruby>会話<rt>かいわ</rt></ruby>を<ruby>聞<rt>き</rt></ruby>いて、ルールどおりにできているか、<ruby>確認<rt>かくにん</rt></ruby>してください。</li>
+<li>イ：できていないときは、その<ruby>場<rt>ば</rt></ruby>で<ruby>正<rt>ただ</rt></ruby>しい<ruby>対応<rt>たいおう</rt></ruby>を<ruby>教<rt>おし</rt></ruby>えてください。</li>
+</ul>
+
+<h3>（７）サービスの<ruby>優先<rt>ゆうせん</rt></ruby><ruby>順位<rt>じゅんい</rt></ruby></h3>
+<p>サービスの<ruby>流<rt>なが</rt></ruby>れは、<ruby>次<rt>つぎ</rt></ruby>のとおりです。</p>
+<p style="background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:12px 16px;">ご<ruby>案内<rt>あんない</rt></ruby>　→　<ruby>水<rt>みず</rt></ruby>・おしぼり・メニューを<ruby>出<rt>だ</rt></ruby>す　→　<ruby>注文<rt>ちゅうもん</rt></ruby><ruby>受<rt>う</rt></ruby>け　→　<ruby>料理<rt>りょうり</rt></ruby><ruby>提供<rt>ていきょう</rt></ruby>　→　<ruby>中間<rt>ちゅうかん</rt></ruby><ruby>下<rt>さ</rt></ruby>げ　→　デザート・ドリンクを<ruby>出<rt>だ</rt></ruby>す　→　レジ<ruby>精算<rt>せいさん</rt></ruby>　→　<ruby>下<rt>さ</rt></ruby>げ</p>
+<p><ruby>従業員<rt>じゅうぎょういん</rt></ruby>が<ruby>少<rt>すく</rt></ruby>ないと、これらのサービスが<ruby>同時<rt>どうじ</rt></ruby>に<ruby>起<rt>お</rt></ruby>こることがあります。そのときの<ruby>優先<rt>ゆうせん</rt></ruby><ruby>順位<rt>じゅんい</rt></ruby>（<ruby>先<rt>さき</rt></ruby>にする<ruby>順番<rt>じゅんばん</rt></ruby>）は、<ruby>次<rt>つぎ</rt></ruby>のとおりです。</p>
+<ol class="steps">
+<li><ruby>料理<rt>りょうり</rt></ruby><ruby>提供<rt>ていきょう</rt></ruby></li>
+<li>レジ<ruby>精算<rt>せいさん</rt></ruby></li>
+<li>ご<ruby>案内<rt>あんない</rt></ruby></li>
+<li><ruby>注文<rt>ちゅうもん</rt></ruby><ruby>受<rt>う</rt></ruby>け</li>
+<li>デザート・ドリンクを<ruby>出<rt>だ</rt></ruby>す</li>
+<li><ruby>下<rt>さ</rt></ruby>げ</li>
+</ol>
+<ul class="plain">
+<li><ruby>料理<rt>りょうり</rt></ruby><ruby>提供<rt>ていきょう</rt></ruby>を１<ruby>番<rt>ばん</rt></ruby>にする<ruby>理由<rt>りゆう</rt></ruby>：<ruby>待<rt>ま</rt></ruby>たせすぎると<ruby>料理<rt>りょうり</rt></ruby>が<ruby>冷<rt>さ</rt></ruby>めます。おいしさが<ruby>下<rt>さ</rt></ruby>がります。お<ruby>客様<rt>きゃくさま</rt></ruby>がもう来ません。</li>
+<li>レジ<ruby>精算<rt>せいさん</rt></ruby>を２<ruby>番<rt>ばん</rt></ruby>にする<ruby>理由<rt>りゆう</rt></ruby>：レジのお<ruby>客様<rt>きゃくさま</rt></ruby>は、<ruby>声<rt>こえ</rt></ruby>をかければ<ruby>待<rt>ま</rt></ruby>ってくれます。</li>
+</ul>
+
+<h3>（８）<ruby>顧客<rt>こきゃく</rt></ruby><ruby>管理<rt>かんり</rt></ruby>（カスタマーリレーションズ）</h3>
+<p><ruby>店舗<rt>てんぽ</rt></ruby><ruby>管理<rt>かんり</rt></ruby><ruby>責任者<rt>せきにんしゃ</rt></ruby>の<ruby>大切<rt>たいせつ</rt></ruby>な<ruby>仕事<rt>しごと</rt></ruby>には、<ruby>顧客<rt>こきゃく</rt></ruby><ruby>管理<rt>かんり</rt></ruby>もあります。<ruby>接客<rt>せっきゃく</rt></ruby>の<ruby>指導<rt>しどう</rt></ruby>や、ピークタイム（お<ruby>客様<rt>きゃくさま</rt></ruby>が<ruby>多<rt>おお</rt></ruby>い<ruby>時間<rt>じかん</rt></ruby>）・アイドルタイム（お<ruby>客様<rt>きゃくさま</rt></ruby>が<ruby>少<rt>すく</rt></ruby>ない<ruby>時間<rt>じかん</rt></ruby>）のサービス<ruby>管理<rt>かんり</rt></ruby>だけではありません。</p>
+<p>ここでの<ruby>顧客<rt>こきゃく</rt></ruby><ruby>管理<rt>かんり</rt></ruby>は、お<ruby>客様<rt>きゃくさま</rt></ruby>のデータを<ruby>管理<rt>かんり</rt></ruby>するだけではありません。<ruby>自分<rt>じぶん</rt></ruby>から、お<ruby>客様<rt>きゃくさま</rt></ruby>と<ruby>店<rt>みせ</rt></ruby>の<ruby>良<rt>よ</rt></ruby>い<ruby>関係<rt>かんけい</rt></ruby>を<ruby>作<rt>つく</rt></ruby>ることです。</p>
+<div class="word"><span class="lbl">ことばの<ruby>説明<rt>せつめい</rt></ruby></span><dl><dt>カスタマーリレーションズ</dt><dd>お<ruby>客様<rt>きゃくさま</rt></ruby>と<ruby>店<rt>みせ</rt></ruby>の、<ruby>良<rt>よ</rt></ruby>い<ruby>関係<rt>かんけい</rt></ruby>づくり。</dd></dl></div>
+
+<h4>（<ruby>参考<rt>さんこう</rt></ruby>）<ruby>個人<rt>こじん</rt></ruby><ruby>情報<rt>じょうほう</rt></ruby><ruby>保護<rt>ほご</rt></ruby>について</h4>
+<p>お<ruby>客様<rt>きゃくさま</rt></ruby>のデータには、<ruby>名前<rt>なまえ</rt></ruby>・<ruby>住所<rt>じゅうしょ</rt></ruby>・電話番号など、個人情報が入ることがあります。<ruby>個人<rt>こじん</rt></ruby><ruby>情報<rt>じょうほう</rt></ruby>が<ruby>外<rt>そと</rt></ruby>にもれたり、なくなったりしないように、<ruby>十分<rt>じゅうぶん</rt></ruby>に<ruby>注意<rt>ちゅうい</rt></ruby>してください。授業員が悪いことに使ったり、<ruby>目的<rt>もくてき</rt></ruby><ruby>以外<rt>いがい</rt></ruby>に<ruby>使<rt>つか</rt></ruby>ったりしないように<ruby>注意<rt>ちゅうい</rt></ruby>してください。</p>
+<p><ruby>従業員<rt>じゅうぎょういん</rt></ruby>にルールを<ruby>守<rt>まも</rt></ruby>らせるために、<ruby>指導<rt>しどう</rt></ruby>・<ruby>監督<rt>かんとく</rt></ruby>してください。<ruby>詳<rt>くわ</rt></ruby>しくは、<ruby>次<rt>つぎ</rt></ruby>のURLを<ruby>見<rt>み</rt></ruby>てください。<ruby>法律<rt>ほうりつ</rt></ruby>やガイドライン、<ruby>自己<rt>じこ</rt></ruby><ruby>点検<rt>てんけん</rt></ruby>チェックリストがあります。</p>
+<p><a href="https://www.ppc.go.jp/personalinfo/legal/" target="_blank" rel="noopener">https://www.ppc.go.jp/personalinfo/legal/</a></p>
+
+<div class="chapter"><span class="num">２</span><h2><ruby>食<rt>しょく</rt></ruby>に<ruby>関<rt>かん</rt></ruby>する<ruby>知識<rt>ちしき</rt></ruby></h2></div>
+<p><ruby>外食業<rt>がいしょくぎょう</rt></ruby>で<ruby>働<rt>はたら</rt></ruby>く<ruby>人<rt>ひと</rt></ruby>は、お<ruby>客様<rt>きゃくさま</rt></ruby>から<ruby>見<rt>み</rt></ruby>ると、<ruby>全員<rt>ぜんいん</rt></ruby>プロ（プロフェッショナル）です。ですから、<ruby>食<rt>しょく</rt></ruby>に<ruby>関<rt>かん</rt></ruby>する<ruby>知識<rt>ちしき</rt></ruby>を<ruby>知<rt>し</rt></ruby>っていることは<ruby>当然<rt>とうぜん</rt></ruby>です。</p>
+
+<h3>（１）<ruby>食物<rt>しょくもつ</rt></ruby>アレルギーについて</h3>
+<p><ruby>食物<rt>しょくもつ</rt></ruby>アレルギーのお<ruby>客様<rt>きゃくさま</rt></ruby>が、<ruby>知<rt>し</rt></ruby>らずにアレルギーの<ruby>食材<rt>しょくざい</rt></ruby>を<ruby>食<rt>た</rt></ruby>べると、<ruby>体<rt>からだ</rt></ruby>に<ruby>悪<rt>わる</rt></ruby>い<ruby>反応<rt>はんのう</rt></ruby>（<ruby>発症<rt>はっしょう</rt></ruby>）が<ruby>出<rt>で</rt></ruby>ます。いちばん<ruby>悪<rt>わる</rt></ruby>い<ruby>場合<rt>ばあい</rt></ruby>は、アナフィラキシーショックを<ruby>起<rt>お</rt></ruby>こします。<ruby>呼吸<rt>こきゅう</rt></ruby>が<ruby>苦<rt>くる</rt></ruby>しくなって、<ruby>死<rt>し</rt></ruby>ぬこともあります。</p>
+<div class="word"><span class="lbl">ことばの<ruby>説明<rt>せつめい</rt></ruby></span><dl>
+<dt>アナフィラキシーショック</dt><dd>アレルギーで<ruby>起<rt>お</rt></ruby>こる、とても<ruby>強<rt>つよ</rt></ruby>くて<ruby>危険<rt>きけん</rt></ruby>な<ruby>反応<rt>はんのう</rt></ruby>。</dd>
+<dt>コンタミネーション（<ruby>混入<rt>こんにゅう</rt></ruby>）</dt><dd><ruby>別<rt>べつ</rt></ruby>の<ruby>食材<rt>しょくざい</rt></ruby>が、<ruby>少<rt>すこ</rt></ruby>し<ruby>混<rt>ま</rt></ruby>ざること。</dd>
+</dl></div>
+<p>ですから、<ruby>料理<rt>りょうり</rt></ruby>に<ruby>使<rt>つか</rt></ruby>う<ruby>原材料<rt>げんざいりょう</rt></ruby>と<ruby>食材<rt>しょくざい</rt></ruby>を<ruby>正<rt>ただ</rt></ruby>しく<ruby>知<rt>し</rt></ruby>ってください。お<ruby>客様<rt>きゃくさま</rt></ruby>の<ruby>質問<rt>しつもん</rt></ruby>に<ruby>答<rt>こた</rt></ruby>えられるようにしてください。</p>
+<p>お<ruby>客様<rt>きゃくさま</rt></ruby>は、メニューや<ruby>写真<rt>しゃしん</rt></ruby>を<ruby>見<rt>み</rt></ruby>て、アレルギーの<ruby>食材<rt>しょくざい</rt></ruby>がわかるものは<ruby>注文<rt>ちゅうもん</rt></ruby>しません。でも、ソースなど、<ruby>見<rt>み</rt></ruby>てもわからないものがあります。コンタミネーション（<ruby>混入<rt>こんにゅう</rt></ruby>）のおそれがあるものもあります。これらは、メニューや<ruby>店内<rt>てんない</rt></ruby>に<ruby>書<rt>か</rt></ruby>いたり、<ruby>掲示<rt>けいじ</rt></ruby>したりして、<ruby>店<rt>みせ</rt></ruby>から<ruby>情報<rt>じょうほう</rt></ruby>を<ruby>伝<rt>つた</rt></ruby>えると<ruby>良<rt>よ</rt></ruby>いです。</p>
+<div class="note"><span class="lbl"><ruby>注意<rt>ちゅうい</rt></ruby></span><ruby>伝<rt>つた</rt></ruby>えた<ruby>情報<rt>じょうほう</rt></ruby>が<ruby>間違<rt>まちが</rt></ruby>っていたり、<ruby>古<rt>ふる</rt></ruby>かったりすると、<ruby>事故<rt>じこ</rt></ruby>になることがあります。<ruby>事故<rt>じこ</rt></ruby>になると、<ruby>責任<rt>せきにん</rt></ruby><ruby>問題<rt>もんだい</rt></ruby>になります。<ruby>十分<rt>じゅうぶん</rt></ruby>に<ruby>注意<rt>ちゅうい</rt></ruby>してください。</div>
+<ul class="check">
+<li>ア：<ruby>特定<rt>とくてい</rt></ruby><ruby>原材料<rt>げんざいりょう</rt></ruby>８<ruby>品目<rt>ひんもく</rt></ruby>（<ruby>卵<rt>たまご</rt></ruby>、<ruby>乳<rt>にゅう</rt></ruby>、<ruby>小麦<rt>こむぎ</rt></ruby>、そば、<ruby>落花生<rt>らっかせい</rt></ruby>、えび、かに、くるみ）が<ruby>入<rt>はい</rt></ruby>っているメニューを<ruby>知<rt>し</rt></ruby>っているか、<ruby>確認<rt>かくにん</rt></ruby>してください。ほかの<ruby>従業員<rt>じゅうぎょういん</rt></ruby>も<ruby>知<rt>し</rt></ruby>っているか、<ruby>確認<rt>かくにん</rt></ruby>してください。</li>
+<li>イ：そばとうどんを<ruby>同<rt>おな</rt></ruby>じ<ruby>釜<rt>かま</rt></ruby>でゆでている<ruby>店<rt>みせ</rt></ruby>では、そのことをお<ruby>客様<rt>きゃくさま</rt></ruby>に<ruby>伝<rt>つた</rt></ruby>えているか、<ruby>確認<rt>かくにん</rt></ruby>してください。</li>
+</ul>
+<div class="note"><span class="lbl">メモ</span>（<ruby>参考<rt>さんこう</rt></ruby>）<ruby>消費者庁<rt>しょうひしゃちょう</rt></ruby>：<ruby>食物<rt>しょくもつ</rt></ruby>アレルギー<ruby>表示<rt>ひょうじ</rt></ruby>に<ruby>関<rt>かん</rt></ruby>する<ruby>情報<rt>じょうほう</rt></ruby><br><a href="https://www.caa.go.jp/policies/policy/food_labeling/food_sanitation/allergy/" target="_blank" rel="noopener">https://www.caa.go.jp/policies/policy/food_labeling/food_sanitation/allergy/</a></div>
+
+<h3>（２）お<ruby>酒<rt>さけ</rt></ruby>の<ruby>取扱<rt>とりあつか</rt></ruby>いについて</h3>
+<ul class="check">
+<li>ア：<ruby>未成年者<rt>みせいねんしゃ</rt></ruby>や、<ruby>車<rt>くるま</rt></ruby>などの<ruby>運転者<rt>うんてんしゃ</rt></ruby>に、お<ruby>酒<rt>さけ</rt></ruby>を<ruby>出<rt>だ</rt></ruby>さないよう<ruby>注意<rt>ちゅうい</rt></ruby>してください。</li>
+<li>イ：<ruby>賞味<rt>しょうみ</rt></ruby><ruby>期限<rt>きげん</rt></ruby>があるお<ruby>酒<rt>さけ</rt></ruby>は、<ruby>期限<rt>きげん</rt></ruby>を<ruby>確認<rt>かくにん</rt></ruby>して<ruby>出<rt>だ</rt></ruby>しているか、<ruby>確認<rt>かくにん</rt></ruby>してください。</li>
+<li>ウ：<ruby>冷<rt>ひ</rt></ruby>やして<ruby>出<rt>だ</rt></ruby>すお<ruby>酒<rt>さけ</rt></ruby>は、よく<ruby>冷<rt>ひ</rt></ruby>えているか、<ruby>確認<rt>かくにん</rt></ruby>してください。</li>
+</ul>
+
+<h3>（３）<ruby>消費<rt>しょうひ</rt></ruby><ruby>期限<rt>きげん</rt></ruby>と<ruby>賞味<rt>しょうみ</rt></ruby><ruby>期限<rt>きげん</rt></ruby>の<ruby>違<rt>ちが</rt></ruby>いについて</h3>
+<div class="word"><span class="lbl">ことばの<ruby>説明<rt>せつめい</rt></ruby></span><dl>
+<dt><ruby>消費<rt>しょうひ</rt></ruby><ruby>期限<rt>きげん</rt></ruby></dt><dd>この<ruby>日<rt>ひ</rt></ruby>までに<ruby>食<rt>た</rt></ruby>べてください、という<ruby>期限<rt>きげん</rt></ruby>です。<ruby>過<rt>す</rt></ruby>ぎたものは、<ruby>安全<rt>あんぜん</rt></ruby>ではないおそれがあります。ですから、<ruby>消費<rt>しょうひ</rt></ruby><ruby>期限<rt>きげん</rt></ruby>を<ruby>過<rt>す</rt></ruby>ぎた<ruby>食品<rt>しょくひん</rt></ruby>は<ruby>食<rt>た</rt></ruby>べないでください。</dd>
+<dt><ruby>賞味<rt>しょうみ</rt></ruby><ruby>期限<rt>きげん</rt></ruby></dt><dd>おいしく<ruby>食<rt>た</rt></ruby>べられる、という<ruby>期限<rt>きげん</rt></ruby>です。<ruby>過<rt>す</rt></ruby>ぎても、すぐに<ruby>食<rt>た</rt></ruby>べられなくなるわけではありません。<ruby>食<rt>た</rt></ruby>べられるかどうかは、<ruby>自分<rt>じぶん</rt></ruby>で<ruby>判断<rt>はんだん</rt></ruby>してください。</dd>
+</dl>※どちらも、「開けないで」で「決められた方法で保存した」ときの期限です。</div>
+<ul class="check">
+<li>ア：<ruby>消費<rt>しょうひ</rt></ruby><ruby>期限<rt>きげん</rt></ruby>、<ruby>賞味<rt>しょうみ</rt></ruby><ruby>期限<rt>きげん</rt></ruby>が<ruby>過<rt>す</rt></ruby>ぎたものは、<ruby>出<rt>だ</rt></ruby>してはいけません。<ruby>特<rt>とく</rt></ruby>に、<ruby>消費<rt>しょうひ</rt></ruby><ruby>期限<rt>きげん</rt></ruby>がある<ruby>食材<rt>しょくざい</rt></ruby>は、もっと<ruby>厳<rt>きび</rt></ruby>しく<ruby>管理<rt>かんり</rt></ruby>してください。</li>
+<li>イ：<ruby>消費<rt>しょうひ</rt></ruby><ruby>期限<rt>きげん</rt></ruby>、<ruby>賞味<rt>しょうみ</rt></ruby><ruby>期限<rt>きげん</rt></ruby>は、どちらも「<ruby>未開封<rt>みかいふう</rt></ruby>」で「<ruby>決<rt>き</rt></ruby>められた<ruby>方法<rt>ほうほう</rt></ruby>で<ruby>保存<rt>ほぞん</rt></ruby>」したときの<ruby>期限<rt>きげん</rt></ruby>です。<ruby>一度<rt>いちど</rt></ruby><ruby>開<rt>あ</rt></ruby>けたり、<ruby>違<rt>ちが</rt></ruby>う<ruby>方法<rt>ほうほう</rt></ruby>で<ruby>保存<rt>ほぞん</rt></ruby>したりすると、メーカーの<ruby>保証<rt>ほしょう</rt></ruby>はなくなります。</li>
+<li>ウ：<ruby>一度<rt>いちど</rt></ruby><ruby>開<rt>あ</rt></ruby>けたものは、<ruby>店<rt>みせ</rt></ruby>や<ruby>会社<rt>かいしゃ</rt></ruby>で<ruby>決<rt>き</rt></ruby>めた<ruby>使用<rt>しよう</rt></ruby><ruby>期間<rt>きかん</rt></ruby>ルールで<ruby>使<rt>つか</rt></ruby>ってください。</li>
+</ul>
+
+<h3>（４）<ruby>味覚<rt>みかく</rt></ruby>について</h3>
+<ul class="check">
+<li>ア：お<ruby>客様<rt>きゃくさま</rt></ruby>から「<ruby>味<rt>あじ</rt></ruby>がおかしい」とクレーム（苦情）があったら、<ruby>自分<rt>じぶん</rt></ruby>で<ruby>味<rt>あじ</rt></ruby>を<ruby>確認<rt>かくにん</rt></ruby>します。<ruby>作<rt>つく</rt></ruby>った<ruby>従業員<rt>じゅうぎょういん</rt></ruby>に、<ruby>工程<rt>こうてい</rt></ruby>（<ruby>作<rt>つく</rt></ruby>り<ruby>方<rt>かた</rt></ruby>）を<ruby>確認<rt>かくにん</rt></ruby>してください。</li>
+<li>イ：<ruby>問題<rt>もんだい</rt></ruby>があったら、原因を見つけます。同じ問題をもう一度起こさないために（<ruby>再発<rt>さいはつ</rt></ruby><ruby>防止<rt>ぼうし</rt></ruby>）、<ruby>問題点<rt>もんだいてん</rt></ruby>を<ruby>店内<rt>てんない</rt></ruby>で<ruby>共有<rt>きょうゆう</rt></ruby>してください。</li>
+</ul>
+
+<h3>（５）<ruby>食<rt>しょく</rt></ruby>の<ruby>多様化<rt>たようか</rt></ruby>について</h3>
+<p><ruby>食<rt>しょく</rt></ruby>の<ruby>多様化<rt>たようか</rt></ruby>については、<ruby>特定技能<rt>とくていぎのう</rt></ruby>１<ruby>号<rt>ごう</rt></ruby>のテキストで、ハラール、ベジタリアン、ヴィーガンを<ruby>説明<rt>せつめい</rt></ruby>しました。</p>
+<div class="word"><span class="lbl">ことばの<ruby>説明<rt>せつめい</rt></ruby></span><dl>
+<dt>ハラール</dt><dd>イスラム<ruby>教<rt>きょう</rt></ruby>の、<ruby>食<rt>た</rt></ruby>べてよい<ruby>食材<rt>しょくざい</rt></ruby>の<ruby>基準<rt>きじゅん</rt></ruby>。</dd>
+<dt>ムスリム</dt><dd>イスラム<ruby>教<rt>きょう</rt></ruby>の<ruby>人<rt>ひと</rt></ruby>。</dd>
+<dt>ベジタリアン</dt><dd><ruby>肉<rt>にく</rt></ruby>や<ruby>魚<rt>さかな</rt></ruby>を<ruby>食<rt>た</rt></ruby>べない<ruby>人<rt>ひと</rt></ruby>。</dd>
+<dt>ヴィーガン</dt><dd><ruby>動物<rt>どうぶつ</rt></ruby>からできた<ruby>食<rt>た</rt></ruby>べ<ruby>物<rt>もの</rt></ruby>を<ruby>食<rt>た</rt></ruby>べない<ruby>人<rt>ひと</rt></ruby>。</dd>
+</dl></div>
+<p><ruby>特<rt>とく</rt></ruby>に、ハラールではアルコールを<ruby>使<rt>つか</rt></ruby>えません。<ruby>食材<rt>しょくざい</rt></ruby>にアルコールをかけることはできません。<ruby>注意<rt>ちゅうい</rt></ruby>してください。ムスリムやベジタリアンなどのお<ruby>客様<rt>きゃくさま</rt></ruby>が<ruby>来<rt>き</rt></ruby>たときは、<ruby>食<rt>た</rt></ruby>べられないものを<ruby>確認<rt>かくにん</rt></ruby>してから、<ruby>料理<rt>りょうり</rt></ruby>を<ruby>出<rt>だ</rt></ruby>してください。</p>
+
+<div class="chapter"><span class="num">３</span><h2><ruby>店舗<rt>てんぽ</rt></ruby><ruby>管理<rt>かんり</rt></ruby>に<ruby>関<rt>かん</rt></ruby>する<ruby>知識<rt>ちしき</rt></ruby></h2></div>
+
+<h3>（１）<ruby>開店<rt>かいてん</rt></ruby><ruby>準備<rt>じゅんび</rt></ruby>、<ruby>閉店<rt>へいてん</rt></ruby><ruby>作業<rt>さぎょう</rt></ruby></h3>
+<p><ruby>開店<rt>かいてん</rt></ruby><ruby>準備<rt>じゅんび</rt></ruby>は、お<ruby>客様<rt>きゃくさま</rt></ruby>に<ruby>気持<rt>きも</rt></ruby>ちよく<ruby>来<rt>き</rt></ruby>てもらうためのものです。<ruby>閉店<rt>へいてん</rt></ruby><ruby>作業<rt>さぎょう</rt></ruby>は、<ruby>安全<rt>あんぜん</rt></ruby><ruby>確認<rt>かくにん</rt></ruby>と、<ruby>次<rt>つぎ</rt></ruby>の<ruby>日<rt>ひ</rt></ruby>のお<ruby>客様<rt>きゃくさま</rt></ruby>の<ruby>準備<rt>じゅんび</rt></ruby>のためのものです。</p>
+
+<h4><span class="mk">①</span><ruby>開店<rt>かいてん</rt></ruby><ruby>準備<rt>じゅんび</rt></ruby></h4>
+<ul class="check">
+<li>ア：<ruby>客席<rt>きゃくせき</rt></ruby>では、<ruby>開店<rt>かいてん</rt></ruby><ruby>準備<rt>じゅんび</rt></ruby>の<ruby>最初<rt>さいしょ</rt></ruby>に、エアコンの<ruby>電源<rt>でんげん</rt></ruby>を<ruby>入<rt>い</rt></ruby>れているか、<ruby>確認<rt>かくにん</rt></ruby>してください。<ruby>店内<rt>てんない</rt></ruby>の<ruby>温度<rt>おんど</rt></ruby>を<ruby>変<rt>か</rt></ruby>えるには<ruby>時間<rt>じかん</rt></ruby>がかかります。<ruby>開店<rt>かいてん</rt></ruby>のときに、いちばん<ruby>良<rt>よ</rt></ruby>い<ruby>温度<rt>おんど</rt></ruby>にするために<ruby>必要<rt>ひつよう</rt></ruby>です。</li>
+<li>イ：<ruby>調理<rt>ちょうり</rt></ruby><ruby>設備<rt>せつび</rt></ruby>では、フライヤー、グリドル、<ruby>湯煎<rt>ゆせん</rt></ruby>などは、スイッチを<ruby>入<rt>い</rt></ruby>れたり<ruby>点火<rt>てんか</rt></ruby>したりしてから、<ruby>使<rt>つか</rt></ruby>えるまでに<ruby>時間<rt>じかん</rt></ruby>がかかります。<ruby>開店<rt>かいてん</rt></ruby>３０<ruby>分前<rt>ぷんまえ</rt></ruby>に、スイッチを<ruby>入<rt>い</rt></ruby>れたり<ruby>点火<rt>てんか</rt></ruby>したりしているか、<ruby>確認<rt>かくにん</rt></ruby>してください。</li>
+<li>ウ：BGM（音楽）や照明などが、<ruby>開店<rt>かいてん</rt></ruby><ruby>時間<rt>じかん</rt></ruby>までに<ruby>動<rt>うご</rt></ruby>いているか、<ruby>確認<rt>かくにん</rt></ruby>してください。</li>
+<li>エ：<ruby>予定<rt>よてい</rt></ruby>どおりの<ruby>従業員<rt>じゅうぎょういん</rt></ruby>が<ruby>出勤<rt>しゅっきん</rt></ruby>しているか、<ruby>確認<rt>かくにん</rt></ruby>してください。</li>
+<li>オ：<ruby>来<rt>き</rt></ruby>ていない<ruby>従業員<rt>じゅうぎょういん</rt></ruby>には、すぐ<ruby>電話<rt>でんわ</rt></ruby>で<ruby>確認<rt>かくにん</rt></ruby>してください。</li>
+<li>カ：<ruby>欠勤<rt>けっきん</rt></ruby>の<ruby>場合<rt>ばあい</rt></ruby>は、ほかの<ruby>従業員<rt>じゅうぎょういん</rt></ruby>に<ruby>連絡<rt>れんらく</rt></ruby>して、<ruby>出勤<rt>しゅっきん</rt></ruby>をお<ruby>願<rt>ねが</rt></ruby>いしてください。</li>
+<li>キ：<ruby>従業員<rt>じゅうぎょういん</rt></ruby>の<ruby>身<rt>み</rt></ruby>だしなみが<ruby>正<rt>ただ</rt></ruby>しいか、<ruby>確認<rt>かくにん</rt></ruby>してください。</li>
+</ul>
+
+<h4><span class="mk">②</span><ruby>閉店<rt>へいてん</rt></ruby><ruby>作業<rt>さぎょう</rt></ruby></h4>
+<ul class="check">
+<li>ア：ラストオーダーのタイミングを、キッチンの<ruby>担当者<rt>たんとうしゃ</rt></ruby>と<ruby>確認<rt>かくにん</rt></ruby>して、<ruby>調整<rt>ちょうせい</rt></ruby>しているか、<ruby>確認<rt>かくにん</rt></ruby>してください。（ぎりぎりに<ruby>入<rt>はい</rt></ruby>ったお<ruby>客様<rt>きゃくさま</rt></ruby>に<ruby>配慮<rt>はいりょ</rt></ruby>してください。）</li>
+<li>イ：レジ<ruby>締<rt>じ</rt></ruby>めで、お<ruby>金<rt>かね</rt></ruby>が<ruby>足<rt>た</rt></ruby>りない、または<ruby>多<rt>おお</rt></ruby>い<ruby>場合<rt>ばあい</rt></ruby>は、<ruby>原因<rt>げんいん</rt></ruby>を<ruby>調<rt>しら</rt></ruby>べているか、<ruby>確認<rt>かくにん</rt></ruby>してください。</li>
+<li>ウ：<ruby>次<rt>つぎ</rt></ruby>の<ruby>日<rt>ひ</rt></ruby>に<ruby>持<rt>も</rt></ruby>ち<ruby>越<rt>こ</rt></ruby>す<ruby>食材<rt>しょくざい</rt></ruby>を、<ruby>正<rt>ただ</rt></ruby>しく<ruby>処理<rt>しょり</rt></ruby>しているか、<ruby>確認<rt>かくにん</rt></ruby>してください。</li>
+<li>エ：<ruby>火<rt>ひ</rt></ruby>の<ruby>元<rt>もと</rt></ruby>の<ruby>安全<rt>あんぜん</rt></ruby><ruby>確認<rt>かくにん</rt></ruby>ができているか、<ruby>確認<rt>かくにん</rt></ruby>してください。</li>
+<li>オ：セキュリティー<ruby>装置<rt>そうち</rt></ruby>がある<ruby>場合<rt>ばあい</rt></ruby>は、<ruby>正<rt>ただ</rt></ruby>しくセットされているか、<ruby>確認<rt>かくにん</rt></ruby>してください。</li>
+</ul>
+<div class="note"><span class="lbl">メモ</span>（<ruby>参考<rt>さんこう</rt></ruby>）フロア<ruby>係<rt>がかり</rt></ruby>の１<ruby>日<rt>にち</rt></ruby>の<ruby>仕事<rt>しごと</rt></ruby>の<ruby>流<rt>なが</rt></ruby>れの<ruby>例<rt>れい</rt></ruby>　／　<ruby>出典<rt>しゅってん</rt></ruby>：<ruby>清水<rt>しみず</rt></ruby><ruby>均<rt>ひとし</rt></ruby><ruby>著<rt>ちょ</rt></ruby>『<ruby>商業界<rt>しょうぎょうかい</rt></ruby>フードサービス <ruby>攻<rt>せ</rt></ruby>めのマネジメント』</div>
+
+<h3>（２）<ruby>清掃<rt>せいそう</rt></ruby><ruby>作業<rt>さぎょう</rt></ruby>（<ruby>調理場<rt>ちょうりば</rt></ruby><ruby>以外<rt>いがい</rt></ruby>）</h3>
+<p>お<ruby>客様<rt>きゃくさま</rt></ruby>が<ruby>見<rt>み</rt></ruby>た<ruby>目<rt>め</rt></ruby>で<ruby>清潔<rt>せいけつ</rt></ruby>だと<ruby>感<rt>かん</rt></ruby>じると、その<ruby>店<rt>みせ</rt></ruby>を<ruby>使<rt>つか</rt></ruby>う<ruby>理由<rt>りゆう</rt></ruby>の<ruby>一<rt>ひと</rt></ruby>つになります。<ruby>清潔<rt>せいけつ</rt></ruby>だと<ruby>感<rt>かん</rt></ruby>じるレベルは、<ruby>人<rt>ひと</rt></ruby>によって<ruby>違<rt>ちが</rt></ruby>います。いちばん<ruby>感<rt>かん</rt></ruby>じやすいお<ruby>客様<rt>きゃくさま</rt></ruby>が、<ruby>清潔<rt>せいけつ</rt></ruby>だと<ruby>感<rt>かん</rt></ruby>じるレベルを<ruby>知<rt>し</rt></ruby>ってください。<ruby>店舗<rt>てんぽ</rt></ruby><ruby>責任者<rt>せきにんしゃ</rt></ruby>は、そのレベルを<ruby>出<rt>だ</rt></ruby>せるように、<ruby>従業員<rt>じゅうぎょういん</rt></ruby>に<ruby>教育<rt>きょういく</rt></ruby>・<ruby>訓練<rt>くんれん</rt></ruby>をしてください。</p>
+
+<h4><span class="mk">①</span><ruby>清掃<rt>せいそう</rt></ruby>のポイント</h4>
+<p><ruby>効率<rt>こうりつ</rt></ruby>がよく、レベルの<ruby>高<rt>たか</rt></ruby>い<ruby>清掃<rt>せいそう</rt></ruby>は、<ruby>道具<rt>どうぐ</rt></ruby>を<ruby>正<rt>ただ</rt></ruby>しく<ruby>使<rt>つか</rt></ruby>うことで<ruby>決<rt>き</rt></ruby>まります。<ruby>清掃<rt>せいそう</rt></ruby>の<ruby>教育<rt>きょういく</rt></ruby>・<ruby>訓練<rt>くんれん</rt></ruby>は、<ruby>最初<rt>さいしょ</rt></ruby>に<ruby>店舗<rt>てんぽ</rt></ruby><ruby>責任者<rt>せきにんしゃ</rt></ruby>が<ruby>自分<rt>じぶん</rt></ruby>で<ruby>指導<rt>しどう</rt></ruby>してください。ほかの<ruby>従業員<rt>じゅうぎょういん</rt></ruby>に<ruby>任<rt>まか</rt></ruby>せると、<ruby>間違<rt>まちが</rt></ruby>って<ruby>覚<rt>おぼ</rt></ruby>えることがあります。</p>
+<ul class="check">
+<li>ア：モップを<ruby>正<rt>ただ</rt></ruby>しく<ruby>使<rt>つか</rt></ruby>っているか、<ruby>確認<rt>かくにん</rt></ruby>してください。（<ruby>糸<rt>いと</rt></ruby>を<ruby>広<rt>ひろ</rt></ruby>げて、８の<ruby>字<rt>じ</rt></ruby>を<ruby>描<rt>えが</rt></ruby>きながら、<ruby>後<rt>うし</rt></ruby>ろへ<ruby>下<rt>さ</rt></ruby>がって<ruby>拭<rt>ふ</rt></ruby>きます。）</li>
+<li>イ：すみずみが<ruby>清潔<rt>せいけつ</rt></ruby>になっているか、<ruby>確認<rt>かくにん</rt></ruby>してください。</li>
+<li>ウ：<ruby>洗剤<rt>せんざい</rt></ruby>などを、<ruby>正<rt>ただ</rt></ruby>しい<ruby>希釈<rt>きしゃく</rt></ruby><ruby>濃度<rt>のうど</rt></ruby>（<ruby>水<rt>みず</rt></ruby>で<ruby>薄<rt>うす</rt></ruby>める<ruby>濃<rt>こ</rt></ruby>さ）で<ruby>使<rt>つか</rt></ruby>っているか、<ruby>確認<rt>かくにん</rt></ruby>してください。</li>
+<li>エ：<ruby>窓<rt>まど</rt></ruby>ガラスを、スクイジーを<ruby>使<rt>つか</rt></ruby>って、<ruby>正<rt>ただ</rt></ruby>しい<ruby>手順<rt>てじゅん</rt></ruby>で<ruby>拭<rt>ふ</rt></ruby>いているか、<ruby>確認<rt>かくにん</rt></ruby>してください。</li>
+<li>オ：<ruby>清掃<rt>せいそう</rt></ruby>スケジュール（<ruby>毎日<rt>まいにち</rt></ruby>、<ruby>毎週<rt>まいしゅう</rt></ruby>、<ruby>毎月<rt>まいつき</rt></ruby>）を<ruby>実行<rt>じっこう</rt></ruby>しているか、<ruby>確認<rt>かくにん</rt></ruby>してください。</li>
+</ul>
+<div class="note"><span class="lbl">メモ</span>（<ruby>参考<rt>さんこう</rt></ruby>）クレンリネス<ruby>作業<rt>さぎょう</rt></ruby>の<ruby>作業<rt>さぎょう</rt></ruby>マニュアルの<ruby>例<rt>れい</rt></ruby>　／　<ruby>出典<rt>しゅってん</rt></ruby>：<ruby>清水<rt>しみず</rt></ruby><ruby>均<rt>ひとし</rt></ruby><ruby>著<rt>ちょ</rt></ruby>『<ruby>商業界<rt>しょうぎょうかい</rt></ruby>フードサービス <ruby>攻<rt>せ</rt></ruby>めのマネジメント』</div>
+
+<h3>（３）<ruby>現金<rt>げんきん</rt></ruby>とキャッシュレス<ruby>決済<rt>けっさい</rt></ruby>の<ruby>知識<rt>ちしき</rt></ruby></h3>
+<ul class="check">
+<li>ア：<ruby>釣銭<rt>つりせん</rt></ruby><ruby>在庫<rt>ざいこ</rt></ruby>（おつり<ruby>用<rt>よう</rt></ruby>のお<ruby>金<rt>かね</rt></ruby>）が<ruby>十分<rt>じゅうぶん</rt></ruby>か、<ruby>確認<rt>かくにん</rt></ruby>してください。</li>
+<li>イ：<ruby>釣銭<rt>つりせん</rt></ruby><ruby>在庫<rt>ざいこ</rt></ruby>が<ruby>足<rt>た</rt></ruby>りなくなりそうなときの<ruby>対応<rt>たいおう</rt></ruby>を、あらかじめ<ruby>確認<rt>かくにん</rt></ruby>しておいてください。</li>
+<li>ウ：<ruby>新<rt>あたら</rt></ruby>しいキャッシュレス<ruby>決済<rt>けっさい</rt></ruby>の<ruby>方法<rt>ほうほう</rt></ruby>が<ruby>入<rt>はい</rt></ruby>ったときは、その<ruby>処理<rt>しょり</rt></ruby><ruby>方法<rt>ほうほう</rt></ruby>をよく<ruby>知<rt>し</rt></ruby>っておいてください。</li>
+</ul>
+
+<h3>（４）レジ<ruby>操作<rt>そうさ</rt></ruby>の<ruby>重要<rt>じゅうよう</rt></ruby>さ</h3>
+<p>レジを<ruby>締<rt>し</rt></ruby>めたとき、レジが<ruby>記録<rt>きろく</rt></ruby>した<ruby>現金<rt>げんきん</rt></ruby>の<ruby>金額<rt>きんがく</rt></ruby>と、レジの<ruby>中<rt>なか</rt></ruby>にある<ruby>本当<rt>ほんとう</rt></ruby>の<ruby>現金<rt>げんきん</rt></ruby>の<ruby>金額<rt>きんがく</rt></ruby>が<ruby>同<rt>おな</rt></ruby>じことが<ruby>大切<rt>たいせつ</rt></ruby>です。<ruby>金額<rt>きんがく</rt></ruby>が<ruby>違<rt>ちが</rt></ruby>うとき（<ruby>誤差<rt>ごさ</rt></ruby>があるとき）は、<ruby>次<rt>つぎ</rt></ruby>のどちらかです。</p>
+<ul class="plain">
+<li><ruby>代金<rt>だいきん</rt></ruby>を<ruby>少<rt>すく</rt></ruby>なく、または<ruby>多<rt>おお</rt></ruby>く<ruby>受<rt>う</rt></ruby>け<ruby>取<rt>と</rt></ruby>った</li>
+<li><ruby>釣銭<rt>つりせん</rt></ruby>（おつり）を<ruby>少<rt>すく</rt></ruby>なく、または<ruby>多<rt>おお</rt></ruby>く<ruby>渡<rt>わた</rt></ruby>した</li>
+</ul>
+<p><ruby>本当<rt>ほんとう</rt></ruby>の<ruby>現金<rt>げんきん</rt></ruby>が<ruby>記録<rt>きろく</rt></ruby>より<ruby>少<rt>すく</rt></ruby>ないと、<ruby>店<rt>みせ</rt></ruby>が<ruby>損<rt>そん</rt></ruby>をします。<ruby>本当<rt>ほんとう</rt></ruby>の<ruby>現金<rt>げんきん</rt></ruby>が<ruby>記録<rt>きろく</rt></ruby>より<ruby>多<rt>おお</rt></ruby>いと、お<ruby>客様<rt>きゃくさま</rt></ruby>が<ruby>損<rt>そん</rt></ruby>をします。お<ruby>客様<rt>きゃくさま</rt></ruby>の<ruby>信頼<rt>しんらい</rt></ruby>をなくして、お<ruby>客様<rt>きゃくさま</rt></ruby>の<ruby>数<rt>かず</rt></ruby>が<ruby>減<rt>へ</rt></ruby>ります。</p>
+
+<h3>（５）<ruby>夜間<rt>やかん</rt></ruby><ruby>金庫<rt>きんこ</rt></ruby>の<ruby>対応<rt>たいおう</rt></ruby></h3>
+<p><ruby>売上金<rt>うりあげきん</rt></ruby>は、<ruby>基本的<rt>きほんてき</rt></ruby>に<ruby>夜間<rt>やかん</rt></ruby><ruby>金庫<rt>きんこ</rt></ruby>に<ruby>入金<rt>にゅうきん</rt></ruby>します。<ruby>閉店<rt>へいてん</rt></ruby>の<ruby>後<rt>あと</rt></ruby>、レジ<ruby>締<rt>じ</rt></ruby>めをします。<ruby>決<rt>き</rt></ruby>められたバッグに、<ruby>現金<rt>げんきん</rt></ruby>と<ruby>入金票<rt>にゅうきんひょう</rt></ruby>を<ruby>入<rt>い</rt></ruby>れて、<ruby>投入<rt>とうにゅう</rt></ruby>します。このとき、<ruby>必<rt>かなら</rt></ruby>ず２<ruby>人<rt>にん</rt></ruby>でしてください。<ruby>防犯<rt>ぼうはん</rt></ruby>（どろぼうを<ruby>防<rt>ふせ</rt></ruby>ぐこと）のためです。<ruby>次<rt>つぎ</rt></ruby>の<ruby>日<rt>ひ</rt></ruby>の<ruby>釣銭<rt>つりせん</rt></ruby>は、<ruby>店内<rt>てんない</rt></ruby>の<ruby>金庫<rt>きんこ</rt></ruby>に<ruby>保管<rt>ほかん</rt></ruby>してください。</p>
+
+<div class="chapter"><span class="num">４</span><h2>クレーム（苦情）<ruby>対応<rt>たいおう</rt></ruby>に<ruby>関<rt>かん</rt></ruby>する<ruby>知識<rt>ちしき</rt></ruby></h2></div>
+
+<h3>（１）お<ruby>客様<rt>きゃくさま</rt></ruby>からのクレーム（苦情）への<ruby>対応<rt>たいおう</rt></ruby></h3>
+<p>クレーム（苦情）は、なるべく<ruby>受<rt>う</rt></ruby>けたくないと<ruby>思<rt>おも</rt></ruby>うのが<ruby>普通<rt>ふつう</rt></ruby>です。でも、クレーム（苦情）は、<ruby>店<rt>みせ</rt></ruby>を<ruby>良<rt>よ</rt></ruby>くするための大切な材料でもあります。「店をよくする材料をもらえるチャンス」と<ruby>考<rt>かんが</rt></ruby>えると、<ruby>対応<rt>たいおう</rt></ruby>の<ruby>態度<rt>たいど</rt></ruby>も<ruby>変<rt>か</rt></ruby>わります。</p>
+
+<h4><span class="mk">①</span>クレーム（苦情）への<ruby>基本的<rt>きほんてき</rt></ruby>な<ruby>対応<rt>たいおう</rt></ruby></h4>
+<ul class="check">
+<li>ア：どんな<ruby>小<rt>ちい</rt></ruby>さな<ruby>苦情<rt>くじょう</rt></ruby>でも、<ruby>部下<rt>ぶか</rt></ruby>から<ruby>報告<rt>ほうこく</rt></ruby>させます。<ruby>店長<rt>てんちょう</rt></ruby>がすぐに、<ruby>直接<rt>ちょくせつ</rt></ruby>テーブルまで<ruby>行<rt>い</rt></ruby>って<ruby>対応<rt>たいおう</rt></ruby>します。</li>
+<li>イ：<ruby>苦情<rt>くじょう</rt></ruby>があった<ruby>場合<rt>ばあい</rt></ruby>は、お<ruby>帰<rt>かえ</rt></ruby>りのときに、<ruby>担当者<rt>たんとうしゃ</rt></ruby>と<ruby>店長<rt>てんちょう</rt></ruby>がもう<ruby>一度<rt>いちど</rt></ruby>、<ruby>丁寧<rt>ていねい</rt></ruby>にお<ruby>詫<rt>わ</rt></ruby>びして、お<ruby>見送<rt>みおく</rt></ruby>りします。</li>
+<li>ウ：このほか、（<ruby>参考<rt>さんこう</rt></ruby>１）クレーム（苦情）<ruby>対応<rt>たいおう</rt></ruby>のポイントや、<ruby>特定技能<rt>とくていぎのう</rt></ruby>１<ruby>号<rt>ごう</rt></ruby>のテキストのクレーム（苦情）<ruby>対応<rt>たいおう</rt></ruby><ruby>手順<rt>てじゅん</rt></ruby>の<ruby>例<rt>れい</rt></ruby>も<ruby>参考<rt>さんこう</rt></ruby>にしてください。</li>
+</ul>
+<div class="note"><span class="lbl">メモ</span><span class="mk" style="color:var(--warm);">②</span>クレーム（苦情）<ruby>対応<rt>たいおう</rt></ruby>のポイント　／　<ruby>出典<rt>しゅってん</rt></ruby>：<ruby>清水<rt>しみず</rt></ruby><ruby>均<rt>ひとし</rt></ruby><ruby>著<rt>ちょ</rt></ruby>『<ruby>商業界<rt>しょうぎょうかい</rt></ruby>フードサービス <ruby>攻<rt>せ</rt></ruby>めのマネジメント』</div>
+
+<h3>（２）<ruby>異物<rt>いぶつ</rt></ruby><ruby>混入<rt>こんにゅう</rt></ruby>が<ruby>発生<rt>はっせい</rt></ruby>したときの<ruby>対応<rt>たいおう</rt></ruby></h3>
+<div class="word"><span class="lbl">ことばの<ruby>説明<rt>せつめい</rt></ruby></span><dl><dt><ruby>異物<rt>いぶつ</rt></ruby><ruby>混入<rt>こんにゅう</rt></ruby></dt><dd><ruby>食<rt>た</rt></ruby>べ<ruby>物<rt>もの</rt></ruby>に、<ruby>食材<rt>しょくざい</rt></ruby><ruby>以外<rt>いがい</rt></ruby>のもの（<ruby>髪<rt>かみ</rt></ruby>の<ruby>毛<rt>け</rt></ruby>、<ruby>虫<rt>むし</rt></ruby>など）が<ruby>入<rt>はい</rt></ruby>ること。</dd></dl></div>
+
+<h4><span class="mk">①</span><ruby>異物<rt>いぶつ</rt></ruby><ruby>混入<rt>こんにゅう</rt></ruby>の<ruby>基本<rt>きほん</rt></ruby><ruby>対応<rt>たいおう</rt></ruby></h4>
+<p>（１）①のクレーム（苦情）の<ruby>基本的<rt>きほんてき</rt></ruby>な<ruby>対応<rt>たいおう</rt></ruby>と<ruby>同<rt>おな</rt></ruby>じです。<ruby>事実<rt>じじつ</rt></ruby>を<ruby>確認<rt>かくにん</rt></ruby>したら、すぐにお<ruby>詫<rt>わ</rt></ruby>びしてください。<ruby>特定技能<rt>とくていぎのう</rt></ruby>１<ruby>号<rt>ごう</rt></ruby>のテキストの、<ruby>異物<rt>いぶつ</rt></ruby><ruby>混入<rt>こんにゅう</rt></ruby>の<ruby>対応<rt>たいおう</rt></ruby>の<ruby>具体<rt>ぐたい</rt></ruby><ruby>例<rt>れい</rt></ruby>も<ruby>参考<rt>さんこう</rt></ruby>にしてください。</p>
+<ul class="check">
+<li>ア：クレーム（苦情）の<ruby>多<rt>おお</rt></ruby>くは<ruby>異物<rt>いぶつ</rt></ruby><ruby>混入<rt>こんにゅう</rt></ruby>です。<ruby>特<rt>とく</rt></ruby>に<ruby>多<rt>おお</rt></ruby>いのは、<ruby>髪<rt>かみ</rt></ruby>の<ruby>毛<rt>け</rt></ruby>の<ruby>混入<rt>こんにゅう</rt></ruby>です。どこで<ruby>入<rt>はい</rt></ruby>ったかを<ruby>調<rt>しら</rt></ruby>べます。もう<ruby>一度<rt>いちど</rt></ruby><ruby>起<rt>お</rt></ruby>こらないように、<ruby>従業員<rt>じゅうぎょういん</rt></ruby>の<ruby>身<rt>み</rt></ruby>だしなみを<ruby>確認<rt>かくにん</rt></ruby>してください。</li>
+<li>イ：<ruby>髪<rt>かみ</rt></ruby>の<ruby>毛<rt>け</rt></ruby><ruby>以外<rt>いがい</rt></ruby>（まつげ、<ruby>眉毛<rt>まゆげ</rt></ruby>、<ruby>体毛<rt>たいもう</rt></ruby>など）でも、<ruby>何<rt>なん</rt></ruby>の<ruby>毛<rt>け</rt></ruby>か、どうやって<ruby>入<rt>はい</rt></ruby>ったかを<ruby>調<rt>しら</rt></ruby>べます。もう<ruby>一度<rt>いちど</rt></ruby><ruby>起<rt>お</rt></ruby>こさないこと（<ruby>再発<rt>さいはつ</rt></ruby><ruby>防止<rt>ぼうし</rt></ruby>）を、<ruby>全<rt>ぜん</rt></ruby><ruby>従業員<rt>じゅうぎょういん</rt></ruby>に<ruby>伝<rt>つた</rt></ruby>えてください。</li>
+<li>ウ：お<ruby>客様<rt>きゃくさま</rt></ruby>にはまず、<ruby>作<rt>つく</rt></ruby>り<ruby>直<rt>なお</rt></ruby>してよいか<ruby>確認<rt>かくにん</rt></ruby>します。「<ruby>作<rt>つく</rt></ruby>り<ruby>直<rt>なお</rt></ruby>しはいらない」と<ruby>言<rt>い</rt></ruby>われたら、すぐに<ruby>伝票<rt>でんぴょう</rt></ruby>をキャンセルします。<ruby>店<rt>みせ</rt></ruby>のルールで、それ<ruby>以上<rt>いじょう</rt></ruby>の<ruby>対応<rt>たいおう</rt></ruby>が<ruby>決<rt>き</rt></ruby>まっている<ruby>場合<rt>ばあい</rt></ruby>は、それに<ruby>従<rt>したが</rt></ruby>ってください。</li>
+</ul>
+
+<h4><span class="mk">②</span><ruby>異物<rt>いぶつ</rt></ruby><ruby>混入<rt>こんにゅう</rt></ruby>を<ruby>防<rt>ふせ</rt></ruby>ぐポイント</h4>
+<ul class="check">
+<li>ア：<ruby>髪<rt>かみ</rt></ruby>の<ruby>毛<rt>け</rt></ruby>の<ruby>次<rt>つぎ</rt></ruby>に<ruby>多<rt>おお</rt></ruby>いのは、<ruby>虫<rt>むし</rt></ruby>の<ruby>混入<rt>こんにゅう</rt></ruby>です。<ruby>捕虫器<rt>ほちゅうき</rt></ruby>（<ruby>虫<rt>むし</rt></ruby>を<ruby>捕<rt>つか</rt></ruby>まえる<ruby>機械<rt>きかい</rt></ruby>）をつけている<ruby>場合<rt>ばあい</rt></ruby>は、<ruby>捕虫器<rt>ほちゅうき</rt></ruby>のランプが<ruby>切<rt>き</rt></ruby>れていないか、<ruby>確認<rt>かくにん</rt></ruby>してください。</li>
+<li>イ：<ruby>厨房<rt>ちゅうぼう</rt></ruby>に<ruby>捕虫器<rt>ほちゅうき</rt></ruby>がある<ruby>場合<rt>ばあい</rt></ruby>は、<ruby>捕虫器<rt>ほちゅうき</rt></ruby>のランプが<ruby>厨房<rt>ちゅうぼう</rt></ruby><ruby>以外<rt>いがい</rt></ruby>から<ruby>見<rt>み</rt></ruby>えていないか、<ruby>確認<rt>かくにん</rt></ruby>してください。<ruby>見<rt>み</rt></ruby>えていると、<ruby>逆<rt>ぎゃく</rt></ruby>に<ruby>虫<rt>むし</rt></ruby>を<ruby>外<rt>そと</rt></ruby>から<ruby>呼<rt>よ</rt></ruby>んでしまいます。</li>
+</ul>
+
+<div class="chapter"><span class="num">５</span><h2><ruby>緊急時<rt>きんきゅうじ</rt></ruby>の<ruby>対応<rt>たいおう</rt></ruby>に<ruby>関<rt>かん</rt></ruby>する<ruby>知識<rt>ちしき</rt></ruby></h2></div>
+
+<h3>（１）<ruby>体調<rt>たいちょう</rt></ruby><ruby>不良者<rt>ふりょうしゃ</rt></ruby>が<ruby>発生<rt>はっせい</rt></ruby>したときの<ruby>対応<rt>たいおう</rt></ruby></h3>
+<p>お<ruby>客様<rt>きゃくさま</rt></ruby>の<ruby>体調<rt>たいちょう</rt></ruby>が<ruby>悪<rt>わる</rt></ruby>くなったときは、<ruby>慌<rt>あわ</rt></ruby>てないでください。<ruby>同伴者<rt>どうはんしゃ</rt></ruby>（<ruby>一緒<rt>いっしょ</rt></ruby>に<ruby>来<rt>き</rt></ruby>た<ruby>人<rt>ひと</rt></ruby>）がいれば、その<ruby>人<rt>ひと</rt></ruby>の<ruby>指示<rt>しじ</rt></ruby>に<ruby>従<rt>したが</rt></ruby>ってください。</p>
+<p><ruby>同伴者<rt>どうはんしゃ</rt></ruby>がいない<ruby>場合<rt>ばあい</rt></ruby>は、<ruby>次<rt>つぎ</rt></ruby>のとおりです。</p>
+<ul class="plain">
+<li><ruby>意識<rt>いしき</rt></ruby>がある　→　ご<ruby>本人<rt>ほんにん</rt></ruby>の<ruby>意思<rt>いし</rt></ruby>に<ruby>従<rt>したが</rt></ruby>ってください。</li>
+<li><ruby>意識<rt>いしき</rt></ruby>がない　→　すぐに<ruby>救急車<rt>きゅうきゅうしゃ</rt></ruby>を<ruby>呼<rt>よ</rt></ruby>んでください。</li>
+</ul>
+<p><ruby>無理<rt>むり</rt></ruby>に<ruby>抱<rt>だ</rt></ruby>き<ruby>起<rt>お</rt></ruby>こさないでください。そのままの<ruby>状態<rt>じょうたい</rt></ruby>で<ruby>待<rt>ま</rt></ruby>ってください。</p>
+
+<h4><span class="mk">①</span><ruby>事例<rt>じれい</rt></ruby>と<ruby>主<rt>おも</rt></ruby>な<ruby>対応<rt>たいおう</rt></ruby><ruby>方法<rt>ほうほう</rt></ruby></h4>
+<div class="word"><span class="lbl">ことばの<ruby>説明<rt>せつめい</rt></ruby></span><dl><dt>AED（<ruby>自動<rt>じどう</rt></ruby><ruby>体外式<rt>たいがいしき</rt></ruby><ruby>除細動器<rt>じょさいどうき</rt></ruby>）</dt><dd><ruby>心臓<rt>しんぞう</rt></ruby>が<ruby>止<rt>と</rt></ruby>まった<ruby>人<rt>ひと</rt></ruby>に<ruby>使<rt>つか</rt></ruby>う<ruby>機械<rt>きかい</rt></ruby>。</dd></dl></div>
+<ul class="check">
+<li>ア：てんかん<ruby>発作<rt>ほっさ</rt></ruby>で<ruby>倒<rt>たお</rt></ruby>れたお<ruby>客様<rt>きゃくさま</rt></ruby>には、<ruby>付<rt>つ</rt></ruby>き<ruby>添<rt>そ</rt></ruby>いの<ruby>人<rt>ひと</rt></ruby>がいれば、その<ruby>人<rt>ひと</rt></ruby>の<ruby>指示<rt>しじ</rt></ruby>に<ruby>従<rt>したが</rt></ruby>ってください。<ruby>付<rt>つ</rt></ruby>き<ruby>添<rt>そ</rt></ruby>いの<ruby>人<rt>ひと</rt></ruby>がいない<ruby>場合<rt>ばあい</rt></ruby>は、すぐに<ruby>救急車<rt>きゅうきゅうしゃ</rt></ruby>を<ruby>呼<rt>よ</rt></ruby>んでください。</li>
+<li>イ：<ruby>心停止<rt>しんていし</rt></ruby>を<ruby>起<rt>お</rt></ruby>こしたお<ruby>客様<rt>きゃくさま</rt></ruby>には、AED（<ruby>自動<rt>じどう</rt></ruby><ruby>体外式<rt>たいがいしき</rt></ruby><ruby>除細動器<rt>じょさいどうき</rt></ruby>）をすぐに<ruby>当<rt>あ</rt></ruby>ててください。<ruby>同時<rt>どうじ</rt></ruby>に<ruby>救急車<rt>きゅうきゅうしゃ</rt></ruby>を<ruby>呼<rt>よ</rt></ruby>んでください。</li>
+<li>ウ：AED（<ruby>自動<rt>じどう</rt></ruby><ruby>体外式<rt>たいがいしき</rt></ruby><ruby>除細動器<rt>じょさいどうき</rt></ruby>）の<ruby>使<rt>つか</rt></ruby>い<ruby>方<rt>かた</rt></ruby>の<ruby>訓練<rt>くんれん</rt></ruby>を、<ruby>定期的<rt>ていきてき</rt></ruby>にしてください。</li>
+<li>エ：このほか、<ruby>特定技能<rt>とくていぎのう</rt></ruby>１<ruby>号<rt>ごう</rt></ruby>のテキストの<ruby>事例<rt>じれい</rt></ruby>と<ruby>主<rt>おも</rt></ruby>な<ruby>対応<rt>たいおう</rt></ruby><ruby>方法<rt>ほうほう</rt></ruby>も<ruby>参考<rt>さんこう</rt></ruby>にしてください。</li>
+</ul>
+
+<h3>（２）<ruby>緊急時<rt>きんきゅうじ</rt></ruby>の<ruby>行動<rt>こうどう</rt></ruby><ruby>基準<rt>きじゅん</rt></ruby></h3>
+<p><ruby>緊急時<rt>きんきゅうじ</rt></ruby>の<ruby>行動<rt>こうどう</rt></ruby><ruby>基準<rt>きじゅん</rt></ruby>は、<ruby>店舗<rt>てんぽ</rt></ruby><ruby>運営<rt>うんえい</rt></ruby>のテキストに<ruby>書<rt>か</rt></ruby>いてあります。</p>
+
+<div class="chapter"><span class="num"><ruby>参考<rt>さんこう</rt></ruby></span><h2>サービス<ruby>基本<rt>きほん</rt></ruby><ruby>用語<rt>ようご</rt></ruby></h2></div>
+<p style="color:var(--muted);font-size:15px;">よく<ruby>使<rt>つか</rt></ruby>う<ruby>接客<rt>せっきゃく</rt></ruby>・<ruby>店舗<rt>てんぽ</rt></ruby>の<ruby>用語<rt>ようご</rt></ruby>です。<ruby>言葉<rt>ことば</rt></ruby>はそのまま<ruby>使<rt>つか</rt></ruby>い、<ruby>説明<rt>せつめい</rt></ruby>をやさしくしています。</p>
+
+<h4>ア［アイドルタイム］</h4>
+<p>お<ruby>客様<rt>きゃくさま</rt></ruby>が<ruby>少<rt>すく</rt></ruby>ない<ruby>時間<rt>じかん</rt></ruby>のこと。ピークタイムの<ruby>反対<rt>はんたい</rt></ruby>の<ruby>言葉<rt>ことば</rt></ruby>です。<ruby>外食<rt>がいしょく</rt></ruby>では<ruby>食事<rt>しょくじ</rt></ruby>の<ruby>時間<rt>じかん</rt></ruby>がピークになるので、その<ruby>間<rt>あいだ</rt></ruby>の<ruby>時間<rt>じかん</rt></ruby>がアイドルタイムになります。この<ruby>時間<rt>じかん</rt></ruby>は、<ruby>人件費<rt>じんけんひ</rt></ruby>をおさえて、サイドワークや<ruby>教育<rt>きょういく</rt></ruby>・トレーニングをします。</p>
+
+<h4>カ［カフェテリア］</h4>
+<p>セルフサービスのレストランです。<ruby>料理<rt>りょうり</rt></ruby>・デザート・ドリンクを、<ruby>保温<rt>ほおん</rt></ruby>や<ruby>冷蔵<rt>れいぞう</rt></ruby>のケースに<ruby>並<rt>なら</rt></ruby>べて<ruby>見<rt>み</rt></ruby>せます。お<ruby>客様<rt>きゃくさま</rt></ruby>はトレーライン（トレーを<ruby>運<rt>はこ</rt></ruby>ぶ<ruby>線<rt>せん</rt></ruby>）に<ruby>沿<rt>そ</rt></ruby>って<ruby>選<rt>えら</rt></ruby>びます。<ruby>最後<rt>さいご</rt></ruby>に<ruby>会計<rt>かいけい</rt></ruby>をして、<ruby>自分<rt>じぶん</rt></ruby>で<ruby>客席<rt>きゃくせき</rt></ruby>へ<ruby>運<rt>はこ</rt></ruby>んで<ruby>食<rt>た</rt></ruby>べます。</p>
+
+<h4>［<ruby>客席<rt>きゃくせき</rt></ruby>レイアウト］</h4>
+<p><ruby>客席<rt>きゃくせき</rt></ruby>の<ruby>並<rt>なら</rt></ruby>べ<ruby>方<rt>かた</rt></ruby>と、<ruby>通路<rt>つうろ</rt></ruby>の<ruby>作<rt>つく</rt></ruby>り<ruby>方<rt>かた</rt></ruby>のこと。<ruby>店<rt>みせ</rt></ruby>の<ruby>種類<rt>しゅるい</rt></ruby>や<ruby>客単価<rt>きゃくたんか</rt></ruby>に<ruby>合<rt>あ</rt></ruby>わせて、<ruby>作業<rt>さぎょう</rt></ruby>の<ruby>動線<rt>どうせん</rt></ruby>を<ruby>考<rt>かんが</rt></ruby>えて<ruby>決<rt>き</rt></ruby>めます。<ruby>客席<rt>きゃくせき</rt></ruby>の<ruby>広<rt>ひろ</rt></ruby>さや<ruby>椅子<rt>いす</rt></ruby>の<ruby>快適<rt>かいてき</rt></ruby>さも<ruby>決<rt>き</rt></ruby>まります。<ruby>客席<rt>きゃくせき</rt></ruby>をよく<ruby>使<rt>つか</rt></ruby>うためには、お<ruby>客様<rt>きゃくさま</rt></ruby>の<ruby>人数<rt>にんずう</rt></ruby>に<ruby>合<rt>あ</rt></ruby>わせて、<ruby>何人<rt>なんにん</rt></ruby><ruby>用<rt>よう</rt></ruby>の<ruby>席<rt>せき</rt></ruby>を<ruby>増<rt>ふ</rt></ruby>やすかが<ruby>大切<rt>たいせつ</rt></ruby>です。</p>
+
+<h4>［<ruby>客層<rt>きゃくそう</rt></ruby>］</h4>
+<p>よく<ruby>来<rt>く</rt></ruby>るお<ruby>客様<rt>きゃくさま</rt></ruby>の<ruby>種類<rt>しゅるい</rt></ruby>のこと。<ruby>年齢<rt>ねんれい</rt></ruby>・<ruby>性別<rt>せいべつ</rt></ruby>・<ruby>所得<rt>しょとく</rt></ruby>など、<ruby>数<rt>かず</rt></ruby>で<ruby>表<rt>あらわ</rt></ruby>す<ruby>分類<rt>ぶんるい</rt></ruby>があります。<ruby>価値観<rt>かちかん</rt></ruby>・ライフスタイル・センスなど、<ruby>数<rt>かず</rt></ruby>で<ruby>表<rt>あらわ</rt></ruby>さない<ruby>分類<rt>ぶんるい</rt></ruby>もあります。<ruby>自分<rt>じぶん</rt></ruby>の<ruby>店<rt>みせ</rt></ruby>の<ruby>客層<rt>きゃくそう</rt></ruby>（ターゲット）を<ruby>決<rt>き</rt></ruby>めると、はっきりしたコンセプトで<ruby>店<rt>みせ</rt></ruby>を<ruby>作<rt>つく</rt></ruby>れます。</p>
+
+<h4>［<ruby>苦情<rt>くじょう</rt></ruby><ruby>処理<rt>しょり</rt></ruby>］</h4>
+<p>お<ruby>客様<rt>きゃくさま</rt></ruby>と<ruby>店<rt>みせ</rt></ruby>の<ruby>間<rt>あいだ</rt></ruby>の<ruby>苦情<rt>くじょう</rt></ruby>やトラブルを、<ruby>前向<rt>まえむ</rt></ruby>きに<ruby>解決<rt>かいけつ</rt></ruby>すること。お<ruby>客様<rt>きゃくさま</rt></ruby>の<ruby>満足<rt>まんぞく</rt></ruby>を<ruby>第一<rt>だいいち</rt></ruby>にします。<ruby>店<rt>みせ</rt></ruby>の<ruby>立場<rt>たちば</rt></ruby>もわかってもらいます。<ruby>苦情<rt>くじょう</rt></ruby>の<ruby>多<rt>おお</rt></ruby>くは、<ruby>基本<rt>きほん</rt></ruby><ruby>作業<rt>さぎょう</rt></ruby>ができていないために<ruby>起<rt>お</rt></ruby>こります。</p>
+
+<h4>［<ruby>口<rt>くち</rt></ruby>コミ］</h4>
+<p><ruby>友<rt>とも</rt></ruby>だちや<ruby>知<rt>し</rt></ruby>り<ruby>合<rt>あ</rt></ruby>いなど、<ruby>人<rt>ひと</rt></ruby>から<ruby>人<rt>ひと</rt></ruby>へ<ruby>口<rt>くち</rt></ruby>で<ruby>伝<rt>つた</rt></ruby>えること。<ruby>信頼<rt>しんらい</rt></ruby>できる<ruby>人<rt>ひと</rt></ruby>からの<ruby>情報<rt>じょうほう</rt></ruby>は、<ruby>店<rt>みせ</rt></ruby>の<ruby>知名度<rt>ちめいど</rt></ruby>を<ruby>上<rt>あ</rt></ruby>げて、<ruby>来店<rt>らいてん</rt></ruby>を<ruby>増<rt>ふ</rt></ruby>やします。いちばん<ruby>効果<rt>こうか</rt></ruby>のある<ruby>販売<rt>はんばい</rt></ruby><ruby>促進<rt>そくしん</rt></ruby>になります。<ruby>反対<rt>はんたい</rt></ruby>に、<ruby>悪<rt>わる</rt></ruby>い<ruby>評判<rt>ひょうばん</rt></ruby>や<ruby>苦情<rt>くじょう</rt></ruby>は、<ruby>逆<rt>ぎゃく</rt></ruby>の<ruby>宣伝<rt>せんでん</rt></ruby>になって、お<ruby>客様<rt>きゃくさま</rt></ruby>の<ruby>数<rt>かず</rt></ruby>を<ruby>減<rt>へ</rt></ruby>らします。</p>
+
+<h4>［クレンリネス］</h4>
+<p><ruby>外食<rt>がいしょく</rt></ruby>で<ruby>成功<rt>せいこう</rt></ruby>するための<ruby>要素<rt>ようそ</rt></ruby>（QSC）の<ruby>一<rt>ひと</rt></ruby>つ、C（クレンリネス）です。<ruby>定期的<rt>ていきてき</rt></ruby>に<ruby>清掃<rt>せいそう</rt></ruby>をして、ドライ（<ruby>乾<rt>かわ</rt></ruby>いている）、シャイン（きれいに<ruby>光<rt>ひか</rt></ruby>る）、オーダリー（<ruby>整理<rt>せいり</rt></ruby><ruby>整頓<rt>せいとん</rt></ruby>）を<ruby>徹底<rt>てってい</rt></ruby>します。<ruby>衛生<rt>えいせい</rt></ruby>を<ruby>良<rt>よ</rt></ruby>くして、<ruby>安全<rt>あんぜん</rt></ruby>を<ruby>高<rt>たか</rt></ruby>めて、メンテナンスをすることです。</p>
+
+<h4>サ［サービスステーション］</h4>
+<p><ruby>入<rt>はい</rt></ruby>ってきたお<ruby>客様<rt>きゃくさま</rt></ruby>がすぐわかり、ホール<ruby>全体<rt>ぜんたい</rt></ruby>が<ruby>見<rt>み</rt></ruby>える<ruby>場所<rt>ばしょ</rt></ruby>にある、<ruby>簡単<rt>かんたん</rt></ruby>な<ruby>設備<rt>せつび</rt></ruby>のこと。<ruby>新<rt>あたら</rt></ruby>しいお<ruby>客様<rt>きゃくさま</rt></ruby>に<ruby>水<rt>みず</rt></ruby>やおしぼりを<ruby>運<rt>はこ</rt></ruby>ぶこと、<ruby>注文<rt>ちゅうもん</rt></ruby><ruby>後<rt>ご</rt></ruby>のテーブルセッティング、<ruby>中間<rt>ちゅうかん</rt></ruby><ruby>下<rt>さ</rt></ruby>げ<ruby>物<rt>もの</rt></ruby>の<ruby>中継<rt>ちゅうけい</rt></ruby>などが、うまくできます。</p>
+
+<h4>［サービングタイム］</h4>
+<p>お<ruby>客様<rt>きゃくさま</rt></ruby>の<ruby>注文<rt>ちゅうもん</rt></ruby>を<ruby>受<rt>う</rt></ruby>けてから、<ruby>料理<rt>りょうり</rt></ruby>を<ruby>出<rt>だ</rt></ruby>すまでの<ruby>時間<rt>じかん</rt></ruby>のこと。ファミリーレストランでは、ランチは５〜７<ruby>分<rt>ふん</rt></ruby>、ディナーは１２〜１５<ruby>分<rt>ふん</rt></ruby>が<ruby>目安<rt>めやす</rt></ruby>です。<ruby>売上<rt>うりあげ</rt></ruby><ruby>予測<rt>よそく</rt></ruby>に<ruby>合<rt>あ</rt></ruby>わせて、<ruby>正<rt>ただ</rt></ruby>しい<ruby>仕込<rt>しこ</rt></ruby>みの<ruby>量<rt>りょう</rt></ruby>と<ruby>準備<rt>じゅんび</rt></ruby>をすることが<ruby>大切<rt>たいせつ</rt></ruby>です。</p>
+
+<h4>［サイドワーク］</h4>
+<p><ruby>仕事<rt>しごと</rt></ruby><ruby>中<rt>ちゅう</rt></ruby>の、<ruby>手<rt>て</rt></ruby>が<ruby>空<rt>あ</rt></ruby>いた<ruby>時間<rt>じかん</rt></ruby>にする<ruby>作業<rt>さぎょう</rt></ruby>のこと。<ruby>接客<rt>せっきゃく</rt></ruby>サービス<ruby>以外<rt>いがい</rt></ruby>の、<ruby>清掃<rt>せいそう</rt></ruby>・<ruby>補充<rt>ほじゅう</rt></ruby>・<ruby>点検<rt>てんけん</rt></ruby>の<ruby>作業<rt>さぎょう</rt></ruby>です。<ruby>接客<rt>せっきゃく</rt></ruby>サービスを<ruby>優先<rt>ゆうせん</rt></ruby>しながら、<ruby>手<rt>て</rt></ruby>が<ruby>空<rt>あ</rt></ruby>いた<ruby>時間<rt>じかん</rt></ruby>に、<ruby>上司<rt>じょうし</rt></ruby>の<ruby>指示<rt>しじ</rt></ruby>がなくても、P/A（パート・アルバイト）が<ruby>自分<rt>じぶん</rt></ruby>の<ruby>判断<rt>はんだん</rt></ruby>でできるように<ruby>訓練<rt>くんれん</rt></ruby>することがポイントです。</p>
+
+<h4>［サジェスティブセールス］</h4>
+<p>お<ruby>客様<rt>きゃくさま</rt></ruby>に、フェアメニューやプラス１<ruby>品<rt>ぴん</rt></ruby>をすすめる<ruby>販売<rt>はんばい</rt></ruby>のこと。<ruby>食事<rt>しょくじ</rt></ruby>がもっと<ruby>楽<rt>たの</rt></ruby>しめるようにアドバイスします。（サジェスティブ＝すすめる、<ruby>暗示<rt>あんじ</rt></ruby>する。）お<ruby>客様<rt>きゃくさま</rt></ruby>がいやがらずに、<ruby>客単価<rt>きゃくたんか</rt></ruby>を<ruby>上<rt>あ</rt></ruby>げて、<ruby>売上<rt>うりあげ</rt></ruby>を<ruby>伸<rt>の</rt></ruby>ばす、<ruby>良<rt>よ</rt></ruby>い<ruby>方法<rt>ほうほう</rt></ruby>です。</p>
+
+<h4>［CS（カスタマーサティスファクション）］</h4>
+<p>お<ruby>客様<rt>きゃくさま</rt></ruby>が、<ruby>店<rt>みせ</rt></ruby>の<ruby>商品<rt>しょうひん</rt></ruby>やサービスを<ruby>使<rt>つか</rt></ruby>った<ruby>後<rt>あと</rt></ruby>の<ruby>満足度<rt>まんぞくど</rt></ruby>のこと。アンケートやインタビューで<ruby>調<rt>しら</rt></ruby>べます。日本の外食では、CSを求めるレベルが<ruby>高<rt>たか</rt></ruby>いです。<ruby>笑顔<rt>えがお</rt></ruby>や<ruby>気配<rt>きくば</rt></ruby>りがないと、<ruby>良<rt>よ</rt></ruby>い<ruby>評価<rt>ひょうか</rt></ruby>をもらいにくいです。</p>
+
+<h4>［<ruby>主力<rt>しゅりょく</rt></ruby><ruby>商品<rt>しょうひん</rt></ruby>］</h4>
+<p>お<ruby>客様<rt>きゃくさま</rt></ruby>に<ruby>人気<rt>にんき</rt></ruby>がある、よく<ruby>売<rt>う</rt></ruby>れるメニューのこと。<ruby>店<rt>みせ</rt></ruby>の<ruby>荒利益<rt>あらりえき</rt></ruby>をいちばん<ruby>稼<rt>かせ</rt></ruby>ぐメニューも、<ruby>主力<rt>しゅりょく</rt></ruby><ruby>商品<rt>しょうひん</rt></ruby>と<ruby>呼<rt>よ</rt></ruby>びます。メニューを<ruby>変<rt>か</rt></ruby>えるときは、<ruby>戦略<rt>せんりゃく</rt></ruby>メニューとして<ruby>主力<rt>しゅりょく</rt></ruby><ruby>商品<rt>しょうひん</rt></ruby>を<ruby>作<rt>つく</rt></ruby>り、<ruby>利益<rt>りえき</rt></ruby>を<ruby>管理<rt>かんり</rt></ruby>する<ruby>必要<rt>ひつよう</rt></ruby>があります。</p>
+
+<h4>タ［テーブルサービス］</h4>
+<p>お<ruby>客様<rt>きゃくさま</rt></ruby>が<ruby>席<rt>せき</rt></ruby>に<ruby>座<rt>すわ</rt></ruby>ったまま、<ruby>注文<rt>ちゅうもん</rt></ruby>から<ruby>料理<rt>りょうり</rt></ruby>・デザートまでサービスを<ruby>受<rt>う</rt></ruby>けること。ファストフードやカフェテリアは、セルフサービスと<ruby>呼<rt>よ</rt></ruby>びます。<ruby>欧米<rt>おうべい</rt></ruby>のテーブルサービスの<ruby>店<rt>みせ</rt></ruby>では、<ruby>利用額<rt>りようがく</rt></ruby>の１０〜２０％のチップが<ruby>必要<rt>ひつよう</rt></ruby>です。</p>
+
+<h4>［テーブルセッティング］</h4>
+<p><ruby>食事<rt>しょくじ</rt></ruby>の<ruby>内容<rt>ないよう</rt></ruby>に<ruby>合<rt>あ</rt></ruby>わせて、シルバーやグラスをテーブルに<ruby>準備<rt>じゅんび</rt></ruby>すること。フランス<ruby>料理<rt>りょうり</rt></ruby>やイタリア<ruby>料理<rt>りょうり</rt></ruby>の<ruby>高級店<rt>こうきゅうてん</rt></ruby>では、<ruby>飾<rt>かざ</rt></ruby>り<ruby>皿<rt>ざら</rt></ruby>や<ruby>生花<rt>せいか</rt></ruby>も<ruby>使<rt>つか</rt></ruby>います。お<ruby>客様<rt>きゃくさま</rt></ruby>をテーブルに<ruby>案内<rt>あんない</rt></ruby>するとき、<ruby>店<rt>みせ</rt></ruby>の<ruby>格<rt>かく</rt></ruby>を<ruby>見<rt>み</rt></ruby>せる<ruby>大切<rt>たいせつ</rt></ruby>な<ruby>演出<rt>えんしゅつ</rt></ruby>です。</p>
+
+<h4>［<ruby>同時<rt>どうじ</rt></ruby><ruby>同卓<rt>どうたく</rt></ruby><ruby>提供<rt>ていきょう</rt></ruby>］</h4>
+<p><ruby>同<rt>おな</rt></ruby>じテーブルのお<ruby>客様<rt>きゃくさま</rt></ruby>が<ruby>注文<rt>ちゅうもん</rt></ruby>した、<ruby>複数<rt>ふくすう</rt></ruby>のメイン<ruby>料理<rt>りょうり</rt></ruby>を、<ruby>同時<rt>どうじ</rt></ruby>に<ruby>出<rt>だ</rt></ruby>すこと。<ruby>一<rt>ひと</rt></ruby>つでも<ruby>料理<rt>りょうり</rt></ruby>が<ruby>遅<rt>おく</rt></ruby>れると、<ruby>食<rt>た</rt></ruby>べるタイミングがずれます。<ruby>連<rt>つ</rt></ruby>れのお<ruby>客様<rt>きゃくさま</rt></ruby><ruby>全員<rt>ぜんいん</rt></ruby>に<ruby>迷惑<rt>めいわく</rt></ruby>がかかります。<ruby>店<rt>みせ</rt></ruby>も、<ruby>客席<rt>きゃくせき</rt></ruby>の<ruby>回転数<rt>かいてんすう</rt></ruby>が<ruby>下<rt>さ</rt></ruby>がって<ruby>困<rt>こま</rt></ruby>ります。</p>
+
+<h4>ハ［ピークタイム］</h4>
+<p>お<ruby>客様<rt>きゃくさま</rt></ruby>が<ruby>集中<rt>しゅうちゅう</rt></ruby>して<ruby>来<rt>く</rt></ruby>る<ruby>時間<rt>じかん</rt></ruby>のこと。ですから、<ruby>売上<rt>うりあげ</rt></ruby><ruby>計画<rt>けいかく</rt></ruby>をもとに、この<ruby>時間<rt>じかん</rt></ruby>を<ruby>中心<rt>ちゅうしん</rt></ruby>にワークスケジュールを<ruby>組<rt>く</rt></ruby>みます。<ruby>仕込<rt>しこ</rt></ruby>み・<ruby>点検<rt>てんけん</rt></ruby>・<ruby>補充<rt>ほじゅう</rt></ruby>・<ruby>清掃<rt>せいそう</rt></ruby>などは、ピークタイムの<ruby>前<rt>まえ</rt></ruby>に<ruby>終<rt>お</rt></ruby>わらせて、お<ruby>客様<rt>きゃくさま</rt></ruby>を<ruby>迎<rt>むか</rt></ruby>える<ruby>必要<rt>ひつよう</rt></ruby>があります。</p>
+
+<h4>［フェア］</h4>
+<p><ruby>新<rt>しん</rt></ruby><ruby>商品<rt>しょうひん</rt></ruby>・<ruby>季節<rt>きせつ</rt></ruby>メニュー・<ruby>単品<rt>たんぴん</rt></ruby>やセットなどで、<ruby>販売<rt>はんばい</rt></ruby><ruby>促進<rt>そくしん</rt></ruby>をすること。ファミリーレストランでは、お<ruby>客様<rt>きゃくさま</rt></ruby>に<ruby>新<rt>あたら</rt></ruby>しさを<ruby>感<rt>かん</rt></ruby>じてもらうことが<ruby>主<rt>おも</rt></ruby>な<ruby>目的<rt>もくてき</rt></ruby>です。<ruby>客単価<rt>きゃくたんか</rt></ruby>の<ruby>調整<rt>ちょうせい</rt></ruby>や、<ruby>新<rt>しん</rt></ruby><ruby>商品<rt>しょうひん</rt></ruby>のテストマーケティングもします。</p>
+
+<h4>［ホスピタリティ］</h4>
+<p><ruby>人<rt>ひと</rt></ruby>への、<ruby>手厚<rt>てあつ</rt></ruby>いおもてなしや、<ruby>温<rt>あたた</rt></ruby>かく<ruby>思<rt>おも</rt></ruby>いやる<ruby>心<rt>こころ</rt></ruby>のこと。アメリカでは、ホテル・レストラン・<ruby>旅客機<rt>りょかくき</rt></ruby>・テーマパーク・リゾートクラブなど、<ruby>設備<rt>せつび</rt></ruby>の<ruby>中<rt>なか</rt></ruby>でおもてなしをする<ruby>産業<rt>さんぎょう</rt></ruby>を、ホスピタリティビジネスと<ruby>呼<rt>よ</rt></ruby>びます。</p>
+
+<h4>ラ［<ruby>来店<rt>らいてん</rt></ruby><ruby>頻度<rt>ひんど</rt></ruby>］</h4>
+<p>お<ruby>客様<rt>きゃくさま</rt></ruby>が、ある<ruby>期間<rt>きかん</rt></ruby>に<ruby>何回<rt>なんかい</rt></ruby><ruby>来<rt>く</rt></ruby>るかを<ruby>表<rt>あらわ</rt></ruby>します。<ruby>客単価<rt>きゃくたんか</rt></ruby>が<ruby>高<rt>たか</rt></ruby>い<ruby>店<rt>みせ</rt></ruby>は、<ruby>来店<rt>らいてん</rt></ruby><ruby>頻度<rt>ひんど</rt></ruby>が<ruby>低<rt>ひく</rt></ruby>くなります。ですから、<ruby>商圏<rt>しょうけん</rt></ruby>を<ruby>広<rt>ひろ</rt></ruby>くする<ruby>必要<rt>ひつよう</rt></ruby>があります。<ruby>客単価<rt>きゃくたんか</rt></ruby>が<ruby>低<rt>ひく</rt></ruby>い<ruby>店<rt>みせ</rt></ruby>は、<ruby>来店<rt>らいてん</rt></ruby><ruby>頻度<rt>ひんど</rt></ruby>が<ruby>高<rt>たか</rt></ruby>くなります。<ruby>商圏<rt>しょうけん</rt></ruby>が<ruby>狭<rt>せま</rt></ruby>くても、<ruby>経営<rt>けいえい</rt></ruby>できることが<ruby>多<rt>おお</rt></ruby>いです。</p>
+
+<div class="note"><span class="lbl">メモ</span><ruby>出典<rt>しゅってん</rt></ruby>：<ruby>清水<rt>しみず</rt></ruby><ruby>均<rt>ひとし</rt></ruby><ruby>著<rt>ちょ</rt></ruby>『<ruby>商業界<rt>しょうぎょうかい</rt></ruby>フードサービス<ruby>攻<rt>せ</rt></ruby>めの<ruby>計数<rt>けいすう</rt></ruby>』</div>
+
+<div class="chapter"><span class="num"><ruby>最後<rt>さいご</rt></ruby>に</span><h2>おわりに</h2></div>
+<p>このテキストは、<ruby>一般<rt>いっぱん</rt></ruby><ruby>社団<rt>しゃだん</rt></ruby><ruby>法人<rt>ほうじん</rt></ruby>　<ruby>日本<rt>にほん</rt></ruby>フードサービス<ruby>協会<rt>きょうかい</rt></ruby>が<ruby>作成<rt>さくせい</rt></ruby>したテキストを<ruby>元<rt>もと</rt></ruby>に<ruby>再編集<rt>さいへんしゅう</rt></ruby>しました。</p>
+<p>NDS<ruby>日本語<rt>にほんご</rt></ruby><ruby>学校<rt>がっこう</rt></ruby></p>
+
+<div class="foot">
+  この「やさしい<ruby>日本語<rt>にほんご</rt></ruby><ruby>版<rt>ばん</rt></ruby>」は、<b><ruby>元<rt>もと</rt></ruby>のテキストの<ruby>内容<rt>ないよう</rt></ruby></b>を、<ruby>出入国<rt>しゅつにゅうこく</rt></ruby><ruby>在留<rt>ざいりゅう</rt></ruby><ruby>管理庁<rt>かんりちょう</rt></ruby>・<ruby>文化庁<rt>ぶんかちょう</rt></ruby>『<ruby>在留<rt>ざいりゅう</rt></ruby><ruby>支援<rt>しえん</rt></ruby>のためのやさしい<ruby>日本語<rt>にほんご</rt></ruby>ガイドライン』にそって<ruby>書<rt>か</rt></ruby>き<ruby>換<rt>か</rt></ruby>えたものです。<ruby>専門<rt>せんもん</rt></ruby><ruby>用語<rt>ようご</rt></ruby>・<ruby>重要<rt>じゅうよう</rt></ruby>な<ruby>語句<rt>ごく</rt></ruby>はそのまま<ruby>残<rt>のこ</rt></ruby>しています。<ruby>正式<rt>せいしき</rt></ruby>な<ruby>内容<rt>ないよう</rt></ruby>は、<ruby>元<rt>もと</rt></ruby>のテキストを<ruby>確認<rt>かくにん</rt></ruby>してください。
+</div>
+</div>
+</body>
+</html>
